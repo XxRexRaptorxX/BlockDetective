@@ -1,0 +1,23 @@
+package xxrexraptorxx.block_detective.main;
+
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.Mod;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import xxrexraptorxx.block_detective.utils.Config;
+
+/**
+ * @author XxRexRaptorxX (RexRaptor)
+ * @projectPage https://www.curseforge.com/minecraft/mc-mods/upcycle
+ **/
+@Mod(References.MODID)
+public class BlockDetective {
+
+    public static final Logger LOGGER = LogManager.getLogger();
+
+    public BlockDetective() {
+        Config.init();
+
+        MinecraftForge.EVENT_BUS.register(this);
+    }
+}
