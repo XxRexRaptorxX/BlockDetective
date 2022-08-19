@@ -1,7 +1,7 @@
 modLoader="javafml"
 loaderVersion="[41,)"
 license="All rights reserved"
-issueTrackerURL="https://www.curseforge.com/minecraft/mc-mods/blockdetective/issues"
+issueTrackerURL="https://www.curseforge.com/minecraft/mc-mods/block-detective/issues"
 
 [[mods]]
 modId="block_detective"
@@ -9,7 +9,7 @@ version="1.0.0"
 displayName="Block Detective"
 itemIcon="minecraft:spyglass"
 updateJSONURL="https://raw.githubusercontent.com/XxRexRaptorxX/Update-Checker/main/BlockDetective.json"
-displayURL="https://www.curseforge.com/minecraft/mc-mods/blockdetective"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/block-detective"
 logoFile="logo.png"
 #credits=""
 authors="XxRexRaptorxX (RexRaptor)"
@@ -17,14 +17,14 @@ description='''
 This mod shows you the properties of all blocks!
 '''
 
-[[dependencies.upcycle]]
+[[dependencies.block_detective]]
     modId="forge"
     mandatory=true
     versionRange="[41.0.98,)"
     ordering="NONE"
     side="BOTH"
 
-[[dependencies.upcycle]]
+[[dependencies.block_detective]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.19,1.20)"

@@ -8,7 +8,7 @@ import xxrexraptorxx.block_detective.utils.Config;
 
 /**
  * @author XxRexRaptorxX (RexRaptor)
- * @projectPage https://www.curseforge.com/minecraft/mc-mods/upcycle
+ * @projectPage https://www.curseforge.com/minecraft/mc-mods/block-detective
  **/
 @Mod(References.MODID)
 public class BlockDetective {
