@@ -46,19 +46,22 @@ public class Events {
         Item item = event.getItemStack().getItem();
         List<Component> list = event.getToolTip();
 
-        for (Block block : ForgeRegistries.BLOCKS) {
-            if (ForgeRegistries.ITEMS.getKey(item) == ForgeRegistries.BLOCKS.getKey(block)) {
+        if (Config.ENABLE_ITEM_TOOLTIPS.get()) {
+            for (Block block : ForgeRegistries.BLOCKS) {
+                if (ForgeRegistries.ITEMS.getKey(item) == ForgeRegistries.BLOCKS.getKey(block)) {
 
-                if(!Screen.hasShiftDown()) {
-                    list.add(Component.translatable("message.block_detective.hold_shift.desc").withStyle(ChatFormatting.GRAY));
-                } else {
-                    if (Config.SHOW_REGISTRY_NAME.get()) list.add(Component.literal(ForgeRegistries.ITEMS.getKey(item).toString()).withStyle(ChatFormatting.GOLD));
-                    if (Config.SHOW_DESTROY_TIME.get()) list.add(Component.literal("Destroy Time: " + String.valueOf(block.defaultDestroyTime())).withStyle(ChatFormatting.YELLOW));
-                    if (Config.SHOW_JUMP_FACTOR.get()) list.add(Component.literal("Jump Factor: " + String.valueOf(block.getJumpFactor())).withStyle(ChatFormatting.YELLOW));
-                    if (Config.SHOW_SPEED_FACTOR.get()) list.add(Component.literal("Speed Factor: " + String.valueOf(block.getSpeedFactor())).withStyle(ChatFormatting.YELLOW));
-                    if (Config.SHOW_FRICTION.get()) list.add(Component.literal("Friction: " + String.valueOf(block.getFriction())).withStyle(ChatFormatting.YELLOW));
-                    if (Config.SHOW_IF_FLAMMABLE.get()) list.add(Component.literal("Flammable: " + FormattingHelper.ConvertBooleanToString(block.defaultBlockState().getMaterial().isFlammable())).withStyle(ChatFormatting.YELLOW));
-                    if (Config.SHOW_IF_SOLID.get()) list.add(Component.literal("Solid: " + FormattingHelper.ConvertBooleanToString(block.defaultBlockState().getMaterial().isSolid())).withStyle(ChatFormatting.YELLOW));
+                    if (!Screen.hasShiftDown()) {
+                        list.add(Component.translatable("message.block_detective.hold_shift.desc").withStyle(ChatFormatting.GRAY));
+
+                    } else {
+                        if (Config.SHOW_REGISTRY_NAME.get()) list.add(Component.literal(ForgeRegistries.ITEMS.getKey(item).toString()).withStyle(ChatFormatting.GOLD));
+                        if (Config.SHOW_DESTROY_TIME.get()) list.add(Component.literal("Destroy Time: " + String.valueOf(block.defaultDestroyTime())).withStyle(ChatFormatting.YELLOW));
+                        if (Config.SHOW_JUMP_FACTOR.get()) list.add(Component.literal("Jump Factor: " + String.valueOf(block.getJumpFactor())).withStyle(ChatFormatting.YELLOW));
+                        if (Config.SHOW_SPEED_FACTOR.get()) list.add(Component.literal("Speed Factor: " + String.valueOf(block.getSpeedFactor())).withStyle(ChatFormatting.YELLOW));
+                        if (Config.SHOW_FRICTION.get()) list.add(Component.literal("Friction: " + String.valueOf(block.getFriction())).withStyle(ChatFormatting.YELLOW));
+                        if (Config.SHOW_IF_FLAMMABLE.get()) list.add(Component.literal("Flammable: " + FormattingHelper.ConvertBooleanToString(block.defaultBlockState().getMaterial().isFlammable())).withStyle(ChatFormatting.YELLOW));
+                        if (Config.SHOW_IF_SOLID.get()) list.add(Component.literal("Solid: " + FormattingHelper.ConvertBooleanToString(block.defaultBlockState().getMaterial().isSolid())).withStyle(ChatFormatting.YELLOW));
+                    }
                 }
             }
         }

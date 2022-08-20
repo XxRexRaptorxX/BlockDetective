@@ -66,13 +66,13 @@ public class Config {
 
         builder.comment("JEI Pages").push(CATEGORY_JEI);
         ENABLE_JEI_ITEM_PAGES = builder.comment("Enable JEI (Just enough items Mod) item info pages").define("enable_jei_item_pages", true);
-        SHOW_REGISTRY_NAME_IN_JEI = builder.comment("Show the registry name in the JEI item page").define("show_registry_name", true);
-        SHOW_DESTROY_TIME_IN_JEI = builder.comment("Show the destroy time in the JEI item page").define("show_destroy_time", true);
-        SHOW_JUMP_FACTOR_IN_JEI = builder.comment("Show the jump factor in the JEI item page").define("show_jump_factor", true);
-        SHOW_SPEED_FACTOR_IN_JEI = builder.comment("Show the speed factor in the JEI item page").define("show_speed_factor", true);
-        SHOW_FRICTION_IN_JEI = builder.comment("Show the friction in the JEI item page").define("show_friction", true);
-        SHOW_IF_FLAMMABLE_IN_JEI = builder.comment("Show if the block is flammable in the JEI item page").define("show_if_flammable", true);
-        SHOW_IF_SOLID_IN_JEI = builder.comment("Show if the block is solid in the JEI item page").define("show_if_solid", true);
+        //SHOW_REGISTRY_NAME_IN_JEI = builder.comment("Show the registry name in the JEI item page").define("show_registry_name", true);    TODO
+        //SHOW_DESTROY_TIME_IN_JEI = builder.comment("Show the destroy time in the JEI item page").define("show_destroy_time", true);
+        //SHOW_JUMP_FACTOR_IN_JEI = builder.comment("Show the jump factor in the JEI item page").define("show_jump_factor", true);
+        //SHOW_SPEED_FACTOR_IN_JEI = builder.comment("Show the speed factor in the JEI item page").define("show_speed_factor", true);
+        //SHOW_FRICTION_IN_JEI = builder.comment("Show the friction in the JEI item page").define("show_friction", true);
+        //SHOW_IF_FLAMMABLE_IN_JEI = builder.comment("Show if the block is flammable in the JEI item page").define("show_if_flammable", true);
+        //SHOW_IF_SOLID_IN_JEI = builder.comment("Show if the block is solid in the JEI item page").define("show_if_solid", true);
         builder.pop();
 
         CLIENT_CONFIG = builder.build();
