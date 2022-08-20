@@ -5,8 +5,6 @@ import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 
-import java.util.List;
-
 @Mod.EventBusSubscriber
 public class Config {
 
