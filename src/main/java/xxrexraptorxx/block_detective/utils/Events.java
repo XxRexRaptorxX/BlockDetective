@@ -57,8 +57,8 @@ public class Events {
                     list.add(Component.literal("Jump Factor: " + String.valueOf(block.getJumpFactor())).withStyle(ChatFormatting.YELLOW));
                     list.add(Component.literal("Speed Factor: " + String.valueOf(block.getSpeedFactor())).withStyle(ChatFormatting.YELLOW));
                     list.add(Component.literal("Friction: " + String.valueOf(block.getFriction())).withStyle(ChatFormatting.YELLOW));
-                    list.add(Component.literal("Flammable: " + String.valueOf(block.defaultBlockState().getMaterial().isFlammable())).withStyle(ChatFormatting.YELLOW));
-                    list.add(Component.literal("Solid: " + String.valueOf(block.defaultBlockState().getMaterial().isSolid())).withStyle(ChatFormatting.YELLOW));
+                    list.add(Component.literal("Flammable: " + FormattingHelper.ConvertBooleanToString(block.defaultBlockState().getMaterial().isFlammable())).withStyle(ChatFormatting.YELLOW));
+                    list.add(Component.literal("Solid: " + FormattingHelper.ConvertBooleanToString(block.defaultBlockState().getMaterial().isSolid())).withStyle(ChatFormatting.YELLOW));
                 }
             }
         }
