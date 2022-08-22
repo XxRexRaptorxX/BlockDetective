@@ -22,6 +22,7 @@ public class Config {
     public static ForgeConfigSpec.BooleanValue SHOW_REGISTRY_NAME;
     public static ForgeConfigSpec.BooleanValue SHOW_DESTROY_TIME;
     public static ForgeConfigSpec.BooleanValue SHOW_JUMP_FACTOR;
+    public static ForgeConfigSpec.BooleanValue SHOW_LIGHT_LEVEL;
     public static ForgeConfigSpec.BooleanValue SHOW_SPEED_FACTOR;
     public static ForgeConfigSpec.BooleanValue SHOW_FRICTION;
     public static ForgeConfigSpec.BooleanValue SHOW_IF_FLAMMABLE;
@@ -31,6 +32,7 @@ public class Config {
     public static ForgeConfigSpec.BooleanValue SHOW_REGISTRY_NAME_IN_JEI;
     public static ForgeConfigSpec.BooleanValue SHOW_DESTROY_TIME_IN_JEI;
     public static ForgeConfigSpec.BooleanValue SHOW_JUMP_FACTOR_IN_JEI;
+    public static ForgeConfigSpec.BooleanValue SHOW_LIGHT_LEVEL_IN_JEI;
     public static ForgeConfigSpec.BooleanValue SHOW_SPEED_FACTOR_IN_JEI;
     public static ForgeConfigSpec.BooleanValue SHOW_FRICTION_IN_JEI;
     public static ForgeConfigSpec.BooleanValue SHOW_IF_FLAMMABLE_IN_JEI;

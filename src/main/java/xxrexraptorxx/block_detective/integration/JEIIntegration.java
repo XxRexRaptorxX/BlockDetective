@@ -34,9 +34,9 @@ public class JEIIntegration implements IModPlugin {
 
                 registry.addIngredientInfo(new ItemStack(block), VanillaTypes.ITEM_STACK, Component.literal(ForgeRegistries.ITEMS.getKey(block.asItem()).toString())
                     .append(Component.literal("\n\nDestroy Time: " + String.valueOf(block.defaultDestroyTime())))
-                    .append(Component.literal("\nDestroy Time: " + String.valueOf(block.defaultDestroyTime())))
                     .append(Component.literal("\nJump Factor: " + String.valueOf(block.getJumpFactor())))
                     .append(Component.literal("\nSpeed Factor: " + String.valueOf(block.getSpeedFactor())))
+                    .append(Component.literal("\nLight Level: " + String.valueOf(block.defaultBlockState().getLightEmission())))
                     .append(Component.literal("\nFriction: " + String.valueOf(block.getFriction())))
                     .append(Component.literal("\nFlammable: " + FormattingHelper.ConvertBooleanToString(block.defaultBlockState().getMaterial().isFlammable())))
                     .append(Component.literal("\nSolid: " + FormattingHelper.ConvertBooleanToString(block.defaultBlockState().getMaterial().isSolid())))
