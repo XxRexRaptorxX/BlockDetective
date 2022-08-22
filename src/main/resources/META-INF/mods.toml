@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[41,)"
+loaderVersion="[40,)"
 license="All rights reserved"
 issueTrackerURL="https://www.curseforge.com/minecraft/mc-mods/block-detective/issues"
 
@@ -20,13 +20,13 @@ This mod shows you the properties of all blocks!
 [[dependencies.block_detective]]
     modId="forge"
     mandatory=true
-    versionRange="[41.0.98,)"
+    versionRange="[40,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.block_detective]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19,1.20)"
+    versionRange="[1.18,1.19)"
     ordering="NONE"
     side="BOTH"
