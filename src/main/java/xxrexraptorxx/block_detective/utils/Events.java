@@ -26,8 +26,8 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.VersionChecker;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
-import xxrexraptorxx.block_detective.main.References;
 import xxrexraptorxx.block_detective.main.BlockDetective;
+import xxrexraptorxx.block_detective.main.References;
 
 import java.net.MalformedURLException;
 import java.net.URL;
