@@ -18,6 +18,8 @@ public class Config {
     public static ForgeConfigSpec.BooleanValue UPDATE_CHECKER;
     public static ForgeConfigSpec.BooleanValue PATREON_REWARDS;
 
+    public static ForgeConfigSpec.BooleanValue SHOW_LONG_SHIFT_TEXT;
+
     public static ForgeConfigSpec.BooleanValue ENABLE_ITEM_TOOLTIPS;
     public static ForgeConfigSpec.BooleanValue SHOW_REGISTRY_NAME;
     public static ForgeConfigSpec.BooleanValue SHOW_DESTROY_TIME;
@@ -56,6 +58,8 @@ public class Config {
         builder.pop();
 
         builder.comment("Tooltips").push(CATEGORY_TOOLTIP);
+        SHOW_LONG_SHIFT_TEXT = builder.comment("Shows a more detailed text instead of the small shift hint under the item").define("show_long_shift_text", false);
+
         ENABLE_ITEM_TOOLTIPS = builder.comment("Enable item tooltips").define("enable_item_tooltips", true);
         SHOW_REGISTRY_NAME = builder.comment("Show the registry name in the item tooltips").define("show_registry_name", true);
         SHOW_DESTROY_TIME = builder.comment("Show the destroy time in the item tooltips").define("show_destroy_time", true);

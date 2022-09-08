@@ -8,6 +8,7 @@
     "message.block_detective.destroy_time": "Destroy Time",
     "message.block_detective.jump_factor":  "Jump Factor",
     "message.block_detective.speed_factor": "Speed Factor",
+    "message.block_detective.light_level": "Light Level",
     "message.block_detective.friction": "Friction",
     "message.block_detective.flammable": "Flammable",
     "message.block_detective.solid": "Solid"

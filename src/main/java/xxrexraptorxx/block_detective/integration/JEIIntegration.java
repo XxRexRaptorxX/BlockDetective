@@ -33,15 +33,16 @@ public class JEIIntegration implements IModPlugin {
             for (Block block : ForgeRegistries.BLOCKS) {
 
                 registry.addIngredientInfo(new ItemStack(block), VanillaTypes.ITEM_STACK, Component.literal(ForgeRegistries.ITEMS.getKey(block.asItem()).toString())
-                    .append(Component.literal("\n\nDestroy Time: " + String.valueOf(block.defaultDestroyTime())))
-                    .append(Component.literal("\nJump Factor: " + String.valueOf(block.getJumpFactor())))
-                    .append(Component.literal("\nSpeed Factor: " + String.valueOf(block.getSpeedFactor())))
-                    .append(Component.literal("\nLight Level: " + String.valueOf(block.defaultBlockState().getLightEmission())))
-                    .append(Component.literal("\nFriction: " + String.valueOf(block.getFriction())))
-                    .append(Component.literal("\nFlammable: " + FormattingHelper.ConvertBooleanToString(block.defaultBlockState().getMaterial().isFlammable())))
-                    .append(Component.literal("\nSolid: " + FormattingHelper.ConvertBooleanToString(block.defaultBlockState().getMaterial().isSolid())))
-                        .withStyle(ChatFormatting.DARK_GRAY));
-        }
+                .append("\n\n").append(Component.translatable("message.block_detective.destroy_time").append(": " + (block.defaultDestroyTime())))
+                .append("\n").append(Component.translatable("message.block_detective.jump_factor").append(": " + (block.getJumpFactor())))
+                .append("\n").append(Component.translatable("message.block_detective.speed_factor").append(": " + (block.getSpeedFactor())))
+                .append("\n").append(Component.translatable("message.block_detective.light_level").append(": " + (block.defaultBlockState().getLightEmission())))
+                .append("\n").append(Component.translatable("message.block_detective.friction").append(": " + (block.getFriction())))
+                .append("\n").append(Component.translatable("message.block_detective.flammable").append(": ").append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().getMaterial().isFlammable())))
+                .append("\n").append(Component.translatable("message.block_detective.solid").append(": ").append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().getMaterial().isSolid())))
+                    .withStyle(ChatFormatting.DARK_GRAY));
+
+            }
         }
     }
 }
