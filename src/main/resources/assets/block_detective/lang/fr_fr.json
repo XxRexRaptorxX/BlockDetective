@@ -1,0 +1,17 @@
+{
+    "_comment": "translated by PasteKBrain",
+	
+	"message.block_detective.hold_shift_extended.desc": "Appuyez sur SHIFT pour plus d'informations",
+    "message.block_detective.hold_shift.desc": "[+] Shift",
+
+    "message.block_detective.yes": "Oui",
+    "message.block_detective.no": "Non",
+
+    "message.block_detective.destroy_time": "Temps de Minage",
+    "message.block_detective.jump_factor":  "Facteur de Rebond",
+    "message.block_detective.speed_factor": "Facteur de Vitesse",
+    "message.block_detective.light_level": "Niveau Lumineux",
+    "message.block_detective.friction": "Coefficient de Friction",
+    "message.block_detective.flammable": "Inflammable",
+    "message.block_detective.solid": "Solide"
+}
