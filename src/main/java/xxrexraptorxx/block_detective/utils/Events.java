@@ -64,8 +64,8 @@ public class Events {
                         if (Config.SHOW_SPEED_FACTOR.get()) list.add(Component.translatable("message.block_detective.speed_factor").append(": " + (block.getSpeedFactor())).withStyle(ChatFormatting.YELLOW));
                         if (Config.SHOW_LIGHT_LEVEL.get()) list.add(Component.translatable("message.block_detective.light_level").append(": " + (block.defaultBlockState().getLightEmission())).withStyle(ChatFormatting.YELLOW));
                         if (Config.SHOW_FRICTION.get()) list.add(Component.translatable("message.block_detective.friction").append(": " + (block.getFriction())).withStyle(ChatFormatting.YELLOW));
-                        if (Config.SHOW_IF_FLAMMABLE.get()) list.add(Component.translatable("message.block_detective.flammable").append(": ").append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().getMaterial().isFlammable())).withStyle(ChatFormatting.YELLOW));
-                        if (Config.SHOW_IF_SOLID.get()) list.add(Component.translatable("message.block_detective.solid").append(": ").append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().getMaterial().isSolid())).withStyle(ChatFormatting.YELLOW));
+                        //if (Config.SHOW_IF_FLAMMABLE.get()) list.add(Component.translatable("message.block_detective.flammable").append(": ").append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().getProperties().isFlammable())).withStyle(ChatFormatting.YELLOW));
+                        //if (Config.SHOW_IF_SOLID.get()) list.add(Component.translatable("message.block_detective.solid").append(": ").append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().getMaterial().isSolid())).withStyle(ChatFormatting.YELLOW));
                     }
                 }
             }
@@ -108,7 +108,7 @@ public class Events {
     @SubscribeEvent
     public static void SupporterRewards(PlayerEvent.PlayerLoggedInEvent event) {
         Player player = event.getEntity();
-        Level world = player.getLevel();
+        Level level = player.level();
 
         if (Config.PATREON_REWARDS.get()) {
 
@@ -134,7 +134,7 @@ public class Events {
                             ownerNBT.putString("SkullOwner", player.getName().getString());
                             reward.setTag(ownerNBT);
 
-                            player.getLevel().playSound((Player) null, player.blockPosition(), SoundEvents.PLAYER_LEVELUP, SoundSource.PLAYERS, 0.5F, world.random.nextFloat() * 0.15F + 0.8F);
+                            level.playSound((Player) null, player.blockPosition(), SoundEvents.PLAYER_LEVELUP, SoundSource.PLAYERS, 0.5F, level.random.nextFloat() * 0.15F + 0.8F);
                             player.addItem(reward);
                             player.addItem(certificate);
                         }
@@ -158,6 +158,7 @@ public class Events {
             }
         }
     }
+
 
     /**
      * Tests if a player is a supporter

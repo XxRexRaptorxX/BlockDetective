@@ -1,32 +1,32 @@
 modLoader="javafml"
-loaderVersion="[41,)"
-license="All rights reserved"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
 issueTrackerURL="https://www.curseforge.com/minecraft/mc-mods/block-detective/issues"
 
 [[mods]]
-modId="block_detective"
-version="1.1.2"
-displayName="Block Detective"
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
 itemIcon="minecraft:spyglass"
 updateJSONURL="https://raw.githubusercontent.com/XxRexRaptorxX/Update-Checker/main/BlockDetective.json"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/block-detective"
 logoFile="logo.png"
 #credits=""
-authors="XxRexRaptorxX (RexRaptor)"
-description='''
-This mod shows you the properties of all blocks!
-'''
+authors="${mod_authors}"
+description='''This mod shows you the properties of all blocks!'''
 
-[[dependencies.block_detective]]
-    modId="forge"
-    mandatory=true
-    versionRange="[41.0.98,)"
-    ordering="NONE"
-    side="BOTH"
 
-[[dependencies.block_detective]]
-    modId="minecraft"
-    mandatory=true
-    versionRange="[1.19,1.20)"
-    ordering="NONE"
-    side="BOTH"
+[[dependencies.${mod_id}]]
+modId="forge"
+mandatory=true
+versionRange="${forge_version_range}"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId="minecraft"
+mandatory=true
+versionRange="${mc_version_range}"
+ordering="NONE"
+side="BOTH"
+

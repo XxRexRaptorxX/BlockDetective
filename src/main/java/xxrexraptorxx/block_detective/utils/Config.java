@@ -67,8 +67,8 @@ public class Config {
         SHOW_LIGHT_LEVEL = builder.comment("Show the light level in the item tooltips").define("show_light_level", true);
         SHOW_SPEED_FACTOR = builder.comment("Show the speed factor in the item tooltips").define("show_speed_factor", true);
         SHOW_FRICTION = builder.comment("Show the friction in the item tooltips").define("show_friction", true);
-        SHOW_IF_FLAMMABLE = builder.comment("Show if the block is flammable in the item tooltips").define("show_if_flammable", true);
-        SHOW_IF_SOLID = builder.comment("Show if the block is solid in the item tooltips").define("show_if_solid", true);
+        //SHOW_IF_FLAMMABLE = builder.comment("Show if the block is flammable in the item tooltips").define("show_if_flammable", true);
+        //SHOW_IF_SOLID = builder.comment("Show if the block is solid in the item tooltips").define("show_if_solid", true);
         builder.pop();
 
         builder.comment("JEI Pages").push(CATEGORY_JEI);

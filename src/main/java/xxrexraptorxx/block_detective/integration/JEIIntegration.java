@@ -38,8 +38,8 @@ public class JEIIntegration implements IModPlugin {
                 .append("\n").append(Component.translatable("message.block_detective.speed_factor").append(": " + (block.getSpeedFactor())))
                 .append("\n").append(Component.translatable("message.block_detective.light_level").append(": " + (block.defaultBlockState().getLightEmission())))
                 .append("\n").append(Component.translatable("message.block_detective.friction").append(": " + (block.getFriction())))
-                .append("\n").append(Component.translatable("message.block_detective.flammable").append(": ").append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().getMaterial().isFlammable())))
-                .append("\n").append(Component.translatable("message.block_detective.solid").append(": ").append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().getMaterial().isSolid())))
+                //.append("\n").append(Component.translatable("message.block_detective.flammable").append(": ").append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().getMaterial().isFlammable())))
+                //.append("\n").append(Component.translatable("message.block_detective.solid").append(": ").append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().getMaterial().isSolid())))
                     .withStyle(ChatFormatting.DARK_GRAY));
 
             }
