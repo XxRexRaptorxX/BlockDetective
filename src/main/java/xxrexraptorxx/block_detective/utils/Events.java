@@ -3,6 +3,7 @@ package xxrexraptorxx.block_detective.utils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.Component;
@@ -18,14 +19,13 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.VersionChecker;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModList;
+import net.neoforged.fml.VersionChecker;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.TickEvent;
+import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import xxrexraptorxx.block_detective.main.BlockDetective;
 import xxrexraptorxx.block_detective.main.References;
 
@@ -47,8 +47,8 @@ public class Events {
         List<Component> list = event.getToolTip();
 
         if (Config.ENABLE_ITEM_TOOLTIPS.get()) {
-            for (Block block : ForgeRegistries.BLOCKS) {
-                if (ForgeRegistries.ITEMS.getKey(item) == ForgeRegistries.BLOCKS.getKey(block)) {
+            for (Block block : BuiltInRegistries.BLOCK) {
+                if (BuiltInRegistries.ITEM.getKey(item) == BuiltInRegistries.BLOCK.getKey(block)) {
 
                     if (!Screen.hasShiftDown()) {
                         if (Config.SHOW_LONG_SHIFT_TEXT.get()) {
@@ -58,7 +58,7 @@ public class Events {
                         }
 
                     } else {
-                        if (Config.SHOW_REGISTRY_NAME.get()) list.add(Component.literal(ForgeRegistries.ITEMS.getKey(item).toString()).withStyle(ChatFormatting.GOLD));
+                        if (Config.SHOW_REGISTRY_NAME.get()) list.add(Component.literal(BuiltInRegistries.ITEM.getKey(item).toString()).withStyle(ChatFormatting.GOLD));
                         if (Config.SHOW_DESTROY_TIME.get()) list.add(Component.translatable("message.block_detective.destroy_time").append(": " + (block.defaultDestroyTime())).withStyle(ChatFormatting.YELLOW));
                         if (Config.SHOW_JUMP_FACTOR.get()) list.add(Component.translatable("message.block_detective.jump_factor").append(": " + (block.getJumpFactor())).withStyle(ChatFormatting.YELLOW));
                         if (Config.SHOW_SPEED_FACTOR.get()) list.add(Component.translatable("message.block_detective.speed_factor").append(": " + (block.getSpeedFactor())).withStyle(ChatFormatting.YELLOW));

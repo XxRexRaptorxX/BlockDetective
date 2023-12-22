@@ -1,44 +1,42 @@
 package xxrexraptorxx.block_detective.utils;
 
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
+import net.neoforged.fml.ModLoadingContext;
+import net.neoforged.fml.config.ModConfig;
+import net.neoforged.neoforge.common.ModConfigSpec;
 
-@Mod.EventBusSubscriber
 public class Config {
 
     public static final String CATEGORY_GENERAL = "general";
     public static final String CATEGORY_TOOLTIP = "tooltip";
     public static final String CATEGORY_JEI = "jei";
 
-    public static ForgeConfigSpec CLIENT_CONFIG;
-    public static ForgeConfigSpec SERVER_CONFIG;
+    public static ModConfigSpec CLIENT_CONFIG;
+    public static ModConfigSpec SERVER_CONFIG;
 
-    public static ForgeConfigSpec.BooleanValue UPDATE_CHECKER;
-    public static ForgeConfigSpec.BooleanValue PATREON_REWARDS;
+    public static ModConfigSpec.BooleanValue UPDATE_CHECKER;
+    public static ModConfigSpec.BooleanValue PATREON_REWARDS;
 
-    public static ForgeConfigSpec.BooleanValue SHOW_LONG_SHIFT_TEXT;
+    public static ModConfigSpec.BooleanValue SHOW_LONG_SHIFT_TEXT;
 
-    public static ForgeConfigSpec.BooleanValue ENABLE_ITEM_TOOLTIPS;
-    public static ForgeConfigSpec.BooleanValue SHOW_REGISTRY_NAME;
-    public static ForgeConfigSpec.BooleanValue SHOW_DESTROY_TIME;
-    public static ForgeConfigSpec.BooleanValue SHOW_JUMP_FACTOR;
-    public static ForgeConfigSpec.BooleanValue SHOW_LIGHT_LEVEL;
-    public static ForgeConfigSpec.BooleanValue SHOW_SPEED_FACTOR;
-    public static ForgeConfigSpec.BooleanValue SHOW_FRICTION;
-    public static ForgeConfigSpec.BooleanValue SHOW_IF_FLAMMABLE;
-    public static ForgeConfigSpec.BooleanValue SHOW_IF_SOLID;
+    public static ModConfigSpec.BooleanValue ENABLE_ITEM_TOOLTIPS;
+    public static ModConfigSpec.BooleanValue SHOW_REGISTRY_NAME;
+    public static ModConfigSpec.BooleanValue SHOW_DESTROY_TIME;
+    public static ModConfigSpec.BooleanValue SHOW_JUMP_FACTOR;
+    public static ModConfigSpec.BooleanValue SHOW_LIGHT_LEVEL;
+    public static ModConfigSpec.BooleanValue SHOW_SPEED_FACTOR;
+    public static ModConfigSpec.BooleanValue SHOW_FRICTION;
+    public static ModConfigSpec.BooleanValue SHOW_IF_FLAMMABLE;
+    public static ModConfigSpec.BooleanValue SHOW_IF_SOLID;
 
-    public static ForgeConfigSpec.BooleanValue ENABLE_JEI_ITEM_PAGES;
-    public static ForgeConfigSpec.BooleanValue SHOW_REGISTRY_NAME_IN_JEI;
-    public static ForgeConfigSpec.BooleanValue SHOW_DESTROY_TIME_IN_JEI;
-    public static ForgeConfigSpec.BooleanValue SHOW_JUMP_FACTOR_IN_JEI;
-    public static ForgeConfigSpec.BooleanValue SHOW_LIGHT_LEVEL_IN_JEI;
-    public static ForgeConfigSpec.BooleanValue SHOW_SPEED_FACTOR_IN_JEI;
-    public static ForgeConfigSpec.BooleanValue SHOW_FRICTION_IN_JEI;
-    public static ForgeConfigSpec.BooleanValue SHOW_IF_FLAMMABLE_IN_JEI;
-    public static ForgeConfigSpec.BooleanValue SHOW_IF_SOLID_IN_JEI;
+    public static ModConfigSpec.BooleanValue ENABLE_JEI_ITEM_PAGES;
+    public static ModConfigSpec.BooleanValue SHOW_REGISTRY_NAME_IN_JEI;
+    public static ModConfigSpec.BooleanValue SHOW_DESTROY_TIME_IN_JEI;
+    public static ModConfigSpec.BooleanValue SHOW_JUMP_FACTOR_IN_JEI;
+    public static ModConfigSpec.BooleanValue SHOW_LIGHT_LEVEL_IN_JEI;
+    public static ModConfigSpec.BooleanValue SHOW_SPEED_FACTOR_IN_JEI;
+    public static ModConfigSpec.BooleanValue SHOW_FRICTION_IN_JEI;
+    public static ModConfigSpec.BooleanValue SHOW_IF_FLAMMABLE_IN_JEI;
+    public static ModConfigSpec.BooleanValue SHOW_IF_SOLID_IN_JEI;
 
 
     public static void init() {
@@ -51,7 +49,7 @@ public class Config {
 
 
     public static void initClient() {
-        ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
+        ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
 
         builder.comment("General").push(CATEGORY_GENERAL);
         UPDATE_CHECKER = builder.comment("Activate the Update-Checker").define("update-checker", true);
@@ -87,7 +85,7 @@ public class Config {
     }
 
     public static void initServer() {
-        ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
+        ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
 
         builder.comment("General").push(CATEGORY_GENERAL);
         PATREON_REWARDS = builder.comment("Enables ingame rewards on first spawn for Patreons").define("patreon_rewards", true);
