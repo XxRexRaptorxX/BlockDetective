@@ -1,6 +1,6 @@
 package xxrexraptorxx.block_detective.utils;
 
-import net.neoforged.fml.ModLoadingContext;
+import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.common.ModConfigSpec;
 
@@ -39,12 +39,12 @@ public class Config {
     public static ModConfigSpec.BooleanValue SHOW_IF_SOLID_IN_JEI;
 
 
-    public static void init() {
+    public static void init(ModContainer container) {
         initServer();
         initClient();
 
-        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, SERVER_CONFIG);
-        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, CLIENT_CONFIG);
+        container.registerConfig(ModConfig.Type.SERVER, SERVER_CONFIG);
+        container.registerConfig(ModConfig.Type.CLIENT, CLIENT_CONFIG);
     }
 
 
@@ -66,7 +66,7 @@ public class Config {
         SHOW_SPEED_FACTOR = builder.comment("Show the speed factor in the item tooltips").define("show_speed_factor", true);
         SHOW_FRICTION = builder.comment("Show the friction in the item tooltips").define("show_friction", true);
         //SHOW_IF_FLAMMABLE = builder.comment("Show if the block is flammable in the item tooltips").define("show_if_flammable", true);
-        //SHOW_IF_SOLID = builder.comment("Show if the block is solid in the item tooltips").define("show_if_solid", true);
+        SHOW_IF_SOLID = builder.comment("Show if the block is solid in the item tooltips").define("show_if_solid", true);
         builder.pop();
 
         builder.comment("JEI Pages").push(CATEGORY_JEI);

@@ -13,11 +13,12 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import xxrexraptorxx.block_detective.main.References;
 import xxrexraptorxx.block_detective.utils.Config;
+import xxrexraptorxx.block_detective.utils.FormattingHelper;
 
 @JeiPlugin
 public class JEIIntegration implements IModPlugin {
 
-    private static final ResourceLocation ID = new ResourceLocation(References.MODID, "jei_plugin");
+    private static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(References.MODID, "jei_plugin");
 
     @Override
     public ResourceLocation getPluginUid() {
@@ -38,9 +39,8 @@ public class JEIIntegration implements IModPlugin {
                 .append("\n").append(Component.translatable("message.block_detective.light_level").append(": " + (block.defaultBlockState().getLightEmission())))
                 .append("\n").append(Component.translatable("message.block_detective.friction").append(": " + (block.getFriction())))
                 //.append("\n").append(Component.translatable("message.block_detective.flammable").append(": ").append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().getMaterial().isFlammable())))
-                //.append("\n").append(Component.translatable("message.block_detective.solid").append(": ").append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().getMaterial().isSolid())))
+                .append("\n").append(Component.translatable("message.block_detective.solid").append(": ").append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().isSolid())))
                     .withStyle(ChatFormatting.DARK_GRAY));
-
             }
         }
     }
