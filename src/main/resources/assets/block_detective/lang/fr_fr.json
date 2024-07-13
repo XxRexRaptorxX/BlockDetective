@@ -13,5 +13,10 @@
     "message.block_detective.light_level": "Niveau Lumineux",
     "message.block_detective.friction": "Coefficient de Friction",
     "message.block_detective.flammable": "Inflammable",
-    "message.block_detective.solid": "Solide"
+    "message.block_detective.solid": "Solide",
+    "message.block_detective.instrument": "Instrument",
+    "message.block_detective.map_color": "Map Color",
+    "message.block_detective.explosion_resistance" : "Explosion Resistance",
+
+    "message.block_detective.information": "Information by: "
 }

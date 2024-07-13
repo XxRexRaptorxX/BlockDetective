@@ -6,10 +6,15 @@
     "message.block_detective.no": "Nein",
 
     "message.block_detective.destroy_time": "Zerstörungszeit",
+    "message.block_detective.explosion_resistance" : "Explosionsresistenz",
     "message.block_detective.jump_factor":  "Sprung-Faktor",
     "message.block_detective.speed_factor": "Tempo-Faktor",
     "message.block_detective.light_level": "Helligkeit",
     "message.block_detective.friction": "Widerstand",
     "message.block_detective.flammable": "Brennbar",
-    "message.block_detective.solid": "Solide"
+    "message.block_detective.solid": "Solide",
+    "message.block_detective.instrument": "Instrument",
+    "message.block_detective.map_color": "Kartenfarbe",
+
+    "message.block_detective.information": "Information von: "
 }

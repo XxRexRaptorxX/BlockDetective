@@ -4,6 +4,8 @@ import com.mojang.authlib.GameProfile;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -43,7 +45,6 @@ import java.util.Scanner;
 @EventBusSubscriber(modid = References.MODID, bus = EventBusSubscriber.Bus.GAME)
 public class Events {
 
-
     /**
      * Adds tooltips to the items.
      **/
@@ -64,14 +65,30 @@ public class Events {
                         }
 
                     } else {
-                        if (Config.SHOW_REGISTRY_NAME.get()) list.add(Component.literal(BuiltInRegistries.ITEM.getKey(item).toString()).withStyle(ChatFormatting.GOLD));
-                        if (Config.SHOW_DESTROY_TIME.get()) list.add(Component.translatable("message.block_detective.destroy_time").append(": " + (block.defaultDestroyTime())).withStyle(ChatFormatting.YELLOW));
-                        if (Config.SHOW_JUMP_FACTOR.get()) list.add(Component.translatable("message.block_detective.jump_factor").append(": " + (block.getJumpFactor())).withStyle(ChatFormatting.YELLOW));
-                        if (Config.SHOW_SPEED_FACTOR.get()) list.add(Component.translatable("message.block_detective.speed_factor").append(": " + (block.getSpeedFactor())).withStyle(ChatFormatting.YELLOW));
-                        if (Config.SHOW_LIGHT_LEVEL.get()) list.add(Component.translatable("message.block_detective.light_level").append(": " + (block.defaultBlockState().getLightEmission())).withStyle(ChatFormatting.YELLOW));
-                        if (Config.SHOW_FRICTION.get()) list.add(Component.translatable("message.block_detective.friction").append(": " + (block.getFriction())).withStyle(ChatFormatting.YELLOW));
-                        //if (Config.SHOW_IF_FLAMMABLE.get()) list.add(Component.translatable("message.block_detective.flammable").append(": ").append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().getProperties().isFlammable())).withStyle(ChatFormatting.YELLOW));
-                        if (Config.SHOW_IF_SOLID.get()) list.add(Component.translatable("message.block_detective.solid").append(": ").append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().isSolid())).withStyle(ChatFormatting.YELLOW));
+                        String separator = ": ";
+
+                        if (Config.SHOW_REGISTRY_NAME.get() && !Minecraft.getInstance().options.advancedItemTooltips)
+                            list.add(Component.literal(BuiltInRegistries.ITEM.getKey(item).toString()).withStyle(ChatFormatting.GOLD));
+                        if (Config.SHOW_DESTROY_TIME.get())
+                            list.add(Component.translatable("message.block_detective.destroy_time").append(separator + (block.defaultDestroyTime())).withStyle(ChatFormatting.YELLOW));
+                        if (Config.SHOW_EXPLOSION_RESISTANCE.get())
+                            list.add(Component.translatable("message.block_detective.explosion_resistance").append(separator + (block.getExplosionResistance())).withStyle(ChatFormatting.YELLOW));
+                        if (Config.SHOW_JUMP_FACTOR.get())
+                            list.add(Component.translatable("message.block_detective.jump_factor").append(separator + (block.getJumpFactor())).withStyle(ChatFormatting.YELLOW));
+                        if (Config.SHOW_SPEED_FACTOR.get())
+                            list.add(Component.translatable("message.block_detective.speed_factor").append(separator + (block.getSpeedFactor())).withStyle(ChatFormatting.YELLOW));
+                        if (Config.SHOW_LIGHT_LEVEL.get())
+                            list.add(Component.translatable("message.block_detective.light_level").append(separator + (block.defaultBlockState().getLightEmission())).withStyle(ChatFormatting.YELLOW));
+                        if (Config.SHOW_FRICTION.get())
+                            list.add(Component.translatable("message.block_detective.friction").append(separator + (block.getFriction())).withStyle(ChatFormatting.YELLOW));
+                        if (Config.SHOW_IF_FLAMMABLE.get())
+                            list.add(Component.translatable("message.block_detective.flammable").append(separator).append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().isFlammable(event.getEntity().level(), new BlockPos(0 , 0, 0), Direction.DOWN))).withStyle(ChatFormatting.YELLOW));
+                        if (Config.SHOW_IF_SOLID.get())
+                            list.add(Component.translatable("message.block_detective.solid").append(separator).append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().isSolid())).withStyle(ChatFormatting.YELLOW));
+                        if (Config.SHOW_MAP_COLOR.get())
+                            list.add(Component.translatable("message.block_detective.map_color").append(separator + (FormattingHelper.FormatRegistryNames(FormattingHelper.getMapColorName(block.defaultMapColor())))).withStyle(ChatFormatting.YELLOW));
+                        if (Config.SHOW_INSTRUMENT.get())
+                            list.add(Component.translatable("message.block_detective.instrument").append(separator + (FormattingHelper.FormatRegistryNames(String.valueOf(block.defaultBlockState().instrument())))).withStyle(ChatFormatting.YELLOW));
                     }
                 }
             }
