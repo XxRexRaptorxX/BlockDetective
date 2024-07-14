@@ -17,6 +17,8 @@
     "message.block_detective.instrument": "Instrument",
     "message.block_detective.map_color": "Map Color",
     "message.block_detective.explosion_resistance" : "Explosion Resistance",
+    "message.block_detective.requires_correct_tool": "Requires Correct Tool",
+    "message.block_detective.is_gravity_affected": "Gravity affected",
 
     "message.block_detective.information": "Information by: "
 }

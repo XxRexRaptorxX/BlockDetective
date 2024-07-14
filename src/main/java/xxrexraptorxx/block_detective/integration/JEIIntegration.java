@@ -11,6 +11,7 @@ import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.FallingBlock;
 import xxrexraptorxx.block_detective.main.References;
 import xxrexraptorxx.block_detective.utils.Config;
 import xxrexraptorxx.block_detective.utils.FormattingHelper;
@@ -64,6 +65,14 @@ public class JEIIntegration implements IModPlugin {
                 if (Config.SHOW_IF_SOLID_IN_JEI.get()) {
                     description = description.append(lineSeperator)
                             .append(Component.translatable("message.block_detective.solid").append(textSeparator).append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().isSolid())));
+                }
+                if (Config.SHOW_REQUIRES_CORRECT_TOOL_IN_JEI.get()) {
+                    description = description.append(lineSeperator)
+                            .append(Component.translatable("message.block_detective.requires_correct_tool").append(textSeparator).append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().requiresCorrectToolForDrops())));
+                }
+                if (Config.SHOW_IS_GRAVITY_AFFECTED_IN_JEI.get()) {
+                    description = description.append(lineSeperator)
+                            .append(Component.translatable("message.block_detective.is_gravity_affected").append(textSeparator).append(FormattingHelper.ConvertBooleanToString(block instanceof FallingBlock)));
                 }
                 if (Config.SHOW_MAP_COLOR_IN_JEI.get()) {
                     description = description.append(lineSeperator)

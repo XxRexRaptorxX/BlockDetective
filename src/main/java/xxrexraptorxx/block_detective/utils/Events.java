@@ -27,6 +27,7 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.FallingBlock;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.VersionChecker;
@@ -85,6 +86,10 @@ public class Events {
                             list.add(Component.translatable("message.block_detective.flammable").append(separator).append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().isFlammable(event.getEntity().level(), new BlockPos(0 , 0, 0), Direction.DOWN))).withStyle(ChatFormatting.YELLOW));
                         if (Config.SHOW_IF_SOLID.get())
                             list.add(Component.translatable("message.block_detective.solid").append(separator).append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().isSolid())).withStyle(ChatFormatting.YELLOW));
+                        if (Config.SHOW_REQUIRES_CORRECT_TOOL.get())
+                            list.add(Component.translatable("message.block_detective.requires_correct_tool").append(separator).append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().requiresCorrectToolForDrops())).withStyle(ChatFormatting.YELLOW));
+                        if (Config.SHOW_IS_GRAVITY_AFFECTED.get())
+                            list.add(Component.translatable("message.block_detective.is_gravity_affected").append(separator).append(FormattingHelper.ConvertBooleanToString(block instanceof FallingBlock)).withStyle(ChatFormatting.YELLOW));
                         if (Config.SHOW_MAP_COLOR.get())
                             list.add(Component.translatable("message.block_detective.map_color").append(separator + (FormattingHelper.FormatRegistryNames(FormattingHelper.getMapColorName(block.defaultMapColor())))).withStyle(ChatFormatting.YELLOW));
                         if (Config.SHOW_INSTRUMENT.get())

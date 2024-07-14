@@ -15,6 +15,8 @@
     "message.block_detective.solid": "Solide",
     "message.block_detective.instrument": "Instrument",
     "message.block_detective.map_color": "Kartenfarbe",
+    "message.block_detective.requires_correct_tool": "Braucht richtiges Tool",
+    "message.block_detective.is_gravity_affected": "Schwerkraft beeinflusst",
 
     "message.block_detective.information": "Information von: "
 }
