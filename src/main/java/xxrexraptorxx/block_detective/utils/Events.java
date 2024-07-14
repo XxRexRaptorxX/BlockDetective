@@ -59,12 +59,9 @@ public class Events {
                 if (BuiltInRegistries.ITEM.getKey(item) == BuiltInRegistries.BLOCK.getKey(block)) {
 
                     if (!Screen.hasShiftDown()) {
-                        if (Config.SHOW_LONG_SHIFT_TEXT.get()) {
-                            list.add(Component.translatable("message.block_detective.hold_shift_extended.desc").withStyle(ChatFormatting.GRAY));
-                        } else {
-                            list.add(Component.translatable("message.block_detective.hold_shift.desc").withStyle(ChatFormatting.GRAY));
+                        if (!(Config.TOOLTIP_HINT_SIZE.get() == InformationTypes.HIDDEN)) {
+                            list.add(Component.translatable("message.block_detective.hold_shift_" + Config.TOOLTIP_HINT_SIZE.get() + ".desc").withStyle(ChatFormatting.GRAY));
                         }
-
                     } else {
                         String separator = ": ";
 
