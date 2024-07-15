@@ -54,7 +54,6 @@ public class Events {
      **/
     @SubscribeEvent
     public static void addingToolTips(ItemTooltipEvent event) {
-        Player player = event.getEntity();
         Item item = event.getItemStack().getItem();
         List<Component> list = event.getToolTip();
 
