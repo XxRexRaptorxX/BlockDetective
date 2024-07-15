@@ -64,7 +64,7 @@ public class Events {
 
                     if (!getKeyValue()) {
                         if (!(Config.TOOLTIP_HINT_SIZE.get() == InformationTypes.HIDDEN)) {
-                            list.add(Component.translatable("message.block_detective.hold_shift_" + Config.TOOLTIP_HINT_SIZE.get() + ".desc").withStyle(ChatFormatting.GRAY));
+                            list.add(Component.translatable("message.block_detective.hold_" + getKeyString() + "_" + Config.TOOLTIP_HINT_SIZE.get() + ".desc").withStyle(ChatFormatting.GRAY));
                         }
                     } else {
                         String separator = ": ";
@@ -72,29 +72,29 @@ public class Events {
                         if (Config.SHOW_REGISTRY_NAME.get() && !Minecraft.getInstance().options.advancedItemTooltips)
                             list.add(Component.literal(BuiltInRegistries.ITEM.getKey(item).toString()).withStyle(ChatFormatting.GOLD));
                         if (Config.SHOW_DESTROY_TIME.get())
-                            list.add(Component.translatable("message.block_detective.destroy_time").append(separator + (block.defaultDestroyTime())).withStyle(ChatFormatting.YELLOW));
+                            list.add(Component.translatable("message.block_detective.destroy_time").withStyle(ChatFormatting.YELLOW).append(Component.literal(separator + (block.defaultDestroyTime())).withStyle(ChatFormatting.GOLD)));
                         if (Config.SHOW_EXPLOSION_RESISTANCE.get())
-                            list.add(Component.translatable("message.block_detective.explosion_resistance").append(separator + (block.getExplosionResistance())).withStyle(ChatFormatting.YELLOW));
+                            list.add(Component.translatable("message.block_detective.explosion_resistance").withStyle(ChatFormatting.YELLOW).append(Component.literal(separator + (block.getExplosionResistance())).withStyle(ChatFormatting.GOLD)));
                         if (Config.SHOW_JUMP_FACTOR.get())
-                            list.add(Component.translatable("message.block_detective.jump_factor").append(separator + (block.getJumpFactor())).withStyle(ChatFormatting.YELLOW));
+                            list.add(Component.translatable("message.block_detective.jump_factor").withStyle(ChatFormatting.YELLOW).append(Component.literal(separator + (block.getJumpFactor())).withStyle(ChatFormatting.GOLD)));
                         if (Config.SHOW_SPEED_FACTOR.get())
-                            list.add(Component.translatable("message.block_detective.speed_factor").append(separator + (block.getSpeedFactor())).withStyle(ChatFormatting.YELLOW));
+                            list.add(Component.translatable("message.block_detective.speed_factor").withStyle(ChatFormatting.YELLOW).append(Component.literal(separator + (block.getSpeedFactor())).withStyle(ChatFormatting.GOLD)));
                         if (Config.SHOW_LIGHT_LEVEL.get())
-                            list.add(Component.translatable("message.block_detective.light_level").append(separator + (block.defaultBlockState().getLightEmission())).withStyle(ChatFormatting.YELLOW));
+                            list.add(Component.translatable("message.block_detective.light_level").withStyle(ChatFormatting.YELLOW).append(Component.literal(separator + (block.defaultBlockState().getLightEmission())).withStyle(ChatFormatting.GOLD)));
                         if (Config.SHOW_FRICTION.get())
-                            list.add(Component.translatable("message.block_detective.friction").append(separator + (block.getFriction())).withStyle(ChatFormatting.YELLOW));
+                            list.add(Component.translatable("message.block_detective.friction").withStyle(ChatFormatting.YELLOW).append(Component.literal(separator + (block.getFriction())).withStyle(ChatFormatting.GOLD)));
                         if (Config.SHOW_IF_FLAMMABLE.get())
-                            list.add(Component.translatable("message.block_detective.flammable").append(separator).append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().isFlammable(event.getEntity().level(), new BlockPos(0 , 0, 0), Direction.DOWN))).withStyle(ChatFormatting.YELLOW));
+                            list.add(Component.translatable("message.block_detective.flammable").withStyle(ChatFormatting.YELLOW).append(Component.literal(separator).append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().isFlammable(event.getEntity().level(), new BlockPos(0 , 0, 0), Direction.DOWN))).withStyle(ChatFormatting.GOLD)));
                         if (Config.SHOW_IF_SOLID.get())
-                            list.add(Component.translatable("message.block_detective.solid").append(separator).append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().isSolid())).withStyle(ChatFormatting.YELLOW));
+                            list.add(Component.translatable("message.block_detective.solid").withStyle(ChatFormatting.YELLOW).append(Component.literal(separator).append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().isSolid())).withStyle(ChatFormatting.GOLD)));
                         if (Config.SHOW_REQUIRES_CORRECT_TOOL.get())
-                            list.add(Component.translatable("message.block_detective.requires_correct_tool").append(separator).append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().requiresCorrectToolForDrops())).withStyle(ChatFormatting.YELLOW));
+                            list.add(Component.translatable("message.block_detective.requires_correct_tool").withStyle(ChatFormatting.YELLOW).append(Component.literal(separator).append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().requiresCorrectToolForDrops())).withStyle(ChatFormatting.GOLD)));
                         if (Config.SHOW_IS_GRAVITY_AFFECTED.get())
-                            list.add(Component.translatable("message.block_detective.is_gravity_affected").append(separator).append(FormattingHelper.ConvertBooleanToString(block instanceof FallingBlock)).withStyle(ChatFormatting.YELLOW));
+                            list.add(Component.translatable("message.block_detective.is_gravity_affected").withStyle(ChatFormatting.YELLOW).append(Component.literal(separator).append(FormattingHelper.ConvertBooleanToString(block instanceof FallingBlock)).withStyle(ChatFormatting.GOLD)));
                         if (Config.SHOW_MAP_COLOR.get())
-                            list.add(Component.translatable("message.block_detective.map_color").append(separator + (FormattingHelper.FormatRegistryNames(FormattingHelper.getMapColorName(block.defaultMapColor())))).withStyle(ChatFormatting.YELLOW));
+                            list.add(Component.translatable("message.block_detective.map_color").withStyle(ChatFormatting.YELLOW).append(Component.literal(separator + (FormattingHelper.FormatRegistryNames(FormattingHelper.getMapColorName(block.defaultMapColor())))).withStyle(ChatFormatting.GOLD)));
                         if (Config.SHOW_INSTRUMENT.get())
-                            list.add(Component.translatable("message.block_detective.instrument").append(separator + (FormattingHelper.FormatRegistryNames(String.valueOf(block.defaultBlockState().instrument())))).withStyle(ChatFormatting.YELLOW));
+                            list.add(Component.translatable("message.block_detective.instrument").withStyle(ChatFormatting.YELLOW).append(Component.literal(separator + (FormattingHelper.FormatRegistryNames(String.valueOf(block.defaultBlockState().instrument())))).withStyle(ChatFormatting.GOLD)));
                     }
                 }
             }
@@ -103,10 +103,11 @@ public class Events {
 
 
     private static boolean getKeyValue() {
-        if (Config.USE_CTRL_INSTEAD_OF_SHIFT.get()) {
-            return Screen.hasControlDown();
-        } else
-            return Screen.hasShiftDown();
+        return Config.USE_CTRL_INSTEAD_OF_SHIFT.get() ? Screen.hasControlDown() : Screen.hasShiftDown();
+    }
+
+    private static String getKeyString() {
+        return Config.USE_CTRL_INSTEAD_OF_SHIFT.get() ? "ctrl" : "shift";
     }
 
 

@@ -1,9 +1,13 @@
 {
     "_comment": "translated by PasteKBrain",
 	
-	"message.block_detective.hold_shift_extended.desc": "Appuyez sur SHIFT pour plus d'informations",
+	"message.block_detective.hold_shift_extended.desc": "Appuyez sur [Shift] pour plus d'informations",
     "message.block_detective.hold_shift_normal.desc": "[+] Shift",
     "message.block_detective.hold_shift_tiny.desc": "[+]",
+
+    "message.block_detective.hold_strg_extended.desc": "Hold [STRG] for more information",
+    "message.block_detective.hold_strg_normal.desc": "[+] STRG",
+    "message.block_detective.hold_strg_tiny.desc": "[+]",
 
     "message.block_detective.yes": "Oui",
     "message.block_detective.no": "Non",

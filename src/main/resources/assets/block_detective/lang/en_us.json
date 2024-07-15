@@ -1,7 +1,11 @@
 {
-    "message.block_detective.hold_shift_extended.desc": "Hold Shift for more information",
+    "message.block_detective.hold_shift_extended.desc": "Hold [Shift] for more information",
     "message.block_detective.hold_shift_normal.desc": "[+] Shift",
     "message.block_detective.hold_shift_tiny.desc": "[+]",
+
+    "message.block_detective.hold_strg_extended.desc": "Hold [Strg] for more information",
+    "message.block_detective.hold_strg_normal.desc": "[+] Strg",
+    "message.block_detective.hold_strg_tiny.desc": "[+]",
 
     "message.block_detective.yes": "Yes",
     "message.block_detective.no": "No",
