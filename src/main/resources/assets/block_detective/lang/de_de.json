@@ -19,5 +19,7 @@
     "message.block_detective.requires_correct_tool": "Braucht richtiges Tool",
     "message.block_detective.is_gravity_affected": "Schwerkraft beeinflusst",
 
-    "message.block_detective.information": "Information von: "
+    "message.block_detective.information": "Information von: ",
+
+    "key.block_detective.additional_information": "Zeige zusätzliche Informationen"
 }

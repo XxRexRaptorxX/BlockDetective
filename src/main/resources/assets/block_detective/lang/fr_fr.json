@@ -21,5 +21,7 @@
     "message.block_detective.requires_correct_tool": "Requires Correct Tool",
     "message.block_detective.is_gravity_affected": "Gravity affected",
 
-    "message.block_detective.information": "Information by: "
+    "message.block_detective.information": "Information by: ",
+
+    "key.block_detective.additional_information": "Show additional information"
 }

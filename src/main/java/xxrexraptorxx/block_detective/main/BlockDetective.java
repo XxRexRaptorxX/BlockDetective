@@ -1,5 +1,6 @@
 package xxrexraptorxx.block_detective.main;
 
+import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
@@ -15,7 +16,7 @@ public class BlockDetective {
 
     public static final Logger LOGGER = LogManager.getLogger();
 
-    public BlockDetective(ModContainer container) {
+    public BlockDetective(IEventBus bus, ModContainer container) {
         Config.init(container);
     }
 }

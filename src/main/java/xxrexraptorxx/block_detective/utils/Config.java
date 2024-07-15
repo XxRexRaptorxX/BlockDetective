@@ -18,6 +18,8 @@ public class Config {
 
     public static ModConfigSpec.EnumValue<InformationTypes> TOOLTIP_HINT_SIZE;
 
+    public static ModConfigSpec.BooleanValue USE_CTRL_INSTEAD_OF_SHIFT;
+
     public static ModConfigSpec.BooleanValue ENABLE_ITEM_TOOLTIPS;
     public static ModConfigSpec.BooleanValue SHOW_REGISTRY_NAME;
     public static ModConfigSpec.BooleanValue SHOW_DESTROY_TIME;
@@ -66,6 +68,7 @@ public class Config {
 
         builder.comment("Tooltips").push(CATEGORY_TOOLTIP);
         TOOLTIP_HINT_SIZE = builder.comment("How the hint tooltip should look under the blocks. TINY = [+], NORMAL = [+] Shift, EXTENDED = Hold Shift for more information").defineEnum("tooltip_hint_size", InformationTypes.NORMAL);
+        USE_CTRL_INSTEAD_OF_SHIFT = builder.comment("Use [CTRL] instead of [SHIFT] key to show the additional informations. ").define("use_ctrl_instead_of_shift", false);
 
         ENABLE_ITEM_TOOLTIPS = builder.comment("Enable item tooltips").define("enable_item_tooltips", true);
         SHOW_REGISTRY_NAME = builder.comment("Show the registry name in the item tooltips").define("show_registry_name", true);

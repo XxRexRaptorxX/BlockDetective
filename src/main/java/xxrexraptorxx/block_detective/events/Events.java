@@ -1,4 +1,4 @@
-package xxrexraptorxx.block_detective.utils;
+package xxrexraptorxx.block_detective.events;
 
 import com.mojang.authlib.GameProfile;
 import net.minecraft.ChatFormatting;
@@ -37,6 +37,9 @@ import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import xxrexraptorxx.block_detective.main.BlockDetective;
 import xxrexraptorxx.block_detective.main.References;
+import xxrexraptorxx.block_detective.utils.Config;
+import xxrexraptorxx.block_detective.utils.FormattingHelper;
+import xxrexraptorxx.block_detective.utils.InformationTypes;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -51,6 +54,7 @@ public class Events {
      **/
     @SubscribeEvent
     public static void addingToolTips(ItemTooltipEvent event) {
+        Player player = event.getEntity();
         Item item = event.getItemStack().getItem();
         List<Component> list = event.getToolTip();
 
@@ -58,7 +62,7 @@ public class Events {
             for (Block block : BuiltInRegistries.BLOCK) {
                 if (BuiltInRegistries.ITEM.getKey(item) == BuiltInRegistries.BLOCK.getKey(block)) {
 
-                    if (!Screen.hasShiftDown()) {
+                    if (!getKeyValue()) {
                         if (!(Config.TOOLTIP_HINT_SIZE.get() == InformationTypes.HIDDEN)) {
                             list.add(Component.translatable("message.block_detective.hold_shift_" + Config.TOOLTIP_HINT_SIZE.get() + ".desc").withStyle(ChatFormatting.GRAY));
                         }
@@ -97,6 +101,13 @@ public class Events {
         }
     }
 
+
+    private static boolean getKeyValue() {
+        if (Config.USE_CTRL_INSTEAD_OF_SHIFT.get()) {
+            return Screen.hasControlDown();
+        } else
+            return Screen.hasShiftDown();
+    }
 
 
     /** Update-Checker **/
