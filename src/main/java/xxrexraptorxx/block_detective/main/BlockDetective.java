@@ -9,7 +9,7 @@ import xxrexraptorxx.block_detective.utils.Config;
 
 /**
  * @author XxRexRaptorxX (RexRaptor)
- * @projectPage https://www.curseforge.com/minecraft/mc-mods/block-detective
+ * @projectPage <a href="https://www.curseforge.com/minecraft/mc-mods/block-detective">...</a>
  **/
 @Mod(References.MODID)
 public class BlockDetective {

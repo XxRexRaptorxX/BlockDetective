@@ -21,6 +21,7 @@ public class Config {
     public static ModConfigSpec.BooleanValue USE_CTRL_INSTEAD_OF_SHIFT;
 
     public static ModConfigSpec.BooleanValue ENABLE_ITEM_TOOLTIPS;
+    public static ModConfigSpec.BooleanValue ENABLE_BLOCK_TOOLTIPS;
     public static ModConfigSpec.BooleanValue SHOW_REGISTRY_NAME;
     public static ModConfigSpec.BooleanValue SHOW_DESTROY_TIME;
     public static ModConfigSpec.BooleanValue SHOW_JUMP_FACTOR;
@@ -71,6 +72,8 @@ public class Config {
         USE_CTRL_INSTEAD_OF_SHIFT = builder.comment("Use [CTRL] instead of [SHIFT] key to show the additional informations. ").define("use_ctrl_instead_of_shift", false);
 
         ENABLE_ITEM_TOOLTIPS = builder.comment("Enable item tooltips").define("enable_item_tooltips", true);
+        ENABLE_BLOCK_TOOLTIPS = builder.comment("Enable block tooltips").define("enable_block_tooltips", true);
+
         SHOW_REGISTRY_NAME = builder.comment("Show the registry name in the item tooltips").define("show_registry_name", true);
         SHOW_DESTROY_TIME = builder.comment("Show the destroy time in the item tooltips").define("show_destroy_time", true);
         SHOW_EXPLOSION_RESISTANCE = builder.comment("Show the explosion resistance in the item tooltips").define("show_explosion_resistance", true);
