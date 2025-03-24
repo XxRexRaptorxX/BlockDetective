@@ -28,6 +28,7 @@ import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FallingBlock;
+import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.VersionChecker;
@@ -59,7 +60,8 @@ public class Events {
      **/
     @SubscribeEvent
     public static void addingToolTips(ItemTooltipEvent event) {
-        Item item = event.getItemStack().getItem();
+        ItemStack stack = event.getItemStack();
+        Item item = stack.getItem();
         List<Component> list = event.getToolTip();
         String separator = ": ";
 
@@ -68,6 +70,7 @@ public class Events {
 
         // Iterate over all registered blocks
         for (Block block : BuiltInRegistries.BLOCK) {
+            BlockState state = block.defaultBlockState();
 
             // Compare the registry keys (using equals() since they are objects)
             if (BuiltInRegistries.ITEM.getKey(item).equals(BuiltInRegistries.BLOCK.getKey(block)) && Config.ENABLE_BLOCK_TOOLTIPS.get()) {
@@ -101,7 +104,7 @@ public class Events {
                     }
                     if (Config.SHOW_LIGHT_LEVEL.get()) {
                         list.add(Component.translatable("message.block_detective.light_level").append(separator).withStyle(ChatFormatting.YELLOW)
-                                .append(Component.literal(String.valueOf(block.defaultBlockState().getLightEmission())).withStyle(ChatFormatting.GOLD)));
+                                .append(Component.literal(String.valueOf(state.getLightEmission())).withStyle(ChatFormatting.GOLD)));
                     }
                     if (Config.SHOW_FRICTION.get()) {
                         list.add(Component.translatable("message.block_detective.friction").append(separator).withStyle(ChatFormatting.YELLOW)
@@ -109,18 +112,18 @@ public class Events {
                     }
                     if (Config.SHOW_IF_FLAMMABLE.get()) {
                         list.add(Component.translatable("message.block_detective.flammable").append(separator).withStyle(ChatFormatting.YELLOW)
-                                .append(Component.literal(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().isFlammable(
+                                .append(Component.literal(FormattingHelper.ConvertBooleanToString(state.isFlammable(
                                         event.getEntity().level(), new BlockPos(0, 0, 0), Direction.DOWN)))
                                         .withStyle(ChatFormatting.GOLD)));
                     }
                     if (Config.SHOW_IF_SOLID.get()) {
                         list.add(Component.translatable("message.block_detective.solid").append(separator).withStyle(ChatFormatting.YELLOW)
-                                .append(Component.literal(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().isSolid()))
+                                .append(Component.literal(FormattingHelper.ConvertBooleanToString(state.isSolid()))
                                 .withStyle(ChatFormatting.GOLD)));
                     }
                     if (Config.SHOW_REQUIRES_CORRECT_TOOL.get()) {
                         list.add(Component.translatable("message.block_detective.requires_correct_tool").append(separator).withStyle(ChatFormatting.YELLOW)
-                                .append(Component.literal(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().requiresCorrectToolForDrops()))
+                                .append(Component.literal(FormattingHelper.ConvertBooleanToString(state.requiresCorrectToolForDrops()))
                                 .withStyle(ChatFormatting.GOLD)));
                     }
                     if (Config.SHOW_IS_GRAVITY_AFFECTED.get()) {
@@ -135,9 +138,49 @@ public class Events {
                     }
                     if (Config.SHOW_INSTRUMENT.get()) {
                         list.add(Component.translatable("message.block_detective.instrument").append(separator).withStyle(ChatFormatting.YELLOW)
-                                .append(Component.literal(FormattingHelper.FormatRegistryNames(String.valueOf(block.defaultBlockState().instrument())))
+                                .append(Component.literal(FormattingHelper.FormatRegistryNames(String.valueOf(state.instrument())))
                                 .withStyle(ChatFormatting.GOLD)));
                     }
+                    //if (Config.SHOW_INSTRUMENT.get()) {
+                    //    list.add(Component.translatable("message.block_detective.animal_spawnable").append(separator).withStyle(ChatFormatting.YELLOW)
+                    //            .append(Component.literal(FormattingHelper.ConvertBooleanToString(state.is(BlockTags.ANIMALS_SPAWNABLE_ON)))
+                    //                    .withStyle(ChatFormatting.GOLD)));
+                    //}
+                    //if (Config.SHOW_INSTRUMENT.get()) {
+                    //    list.add(Component.translatable("message.block_detective.beacon_base").append(separator).withStyle(ChatFormatting.YELLOW)
+                    //            .append(Component.literal(FormattingHelper.ConvertBooleanToString(state.is(BlockTags.BEACON_BASE_BLOCKS)))
+                    //                    .withStyle(ChatFormatting.GOLD)));
+                    //}
+                    //if (Config.SHOW_INSTRUMENT.get()) {
+                    //    list.add(Component.translatable("message.block_detective.climbable").append(separator).withStyle(ChatFormatting.YELLOW)
+                    //            .append(Component.literal(FormattingHelper.ConvertBooleanToString(state.is(BlockTags.CLIMBABLE)))
+                    //                    .withStyle(ChatFormatting.GOLD)));
+                    //}
+                    //if (Config.SHOW_INSTRUMENT.get()) {
+                    //    list.add(Component.translatable("message.block_detective.impermeable").append(separator).withStyle(ChatFormatting.YELLOW)
+                    //            .append(Component.literal(FormattingHelper.ConvertBooleanToString(state.is(BlockTags.IMPERMEABLE)))
+                    //                    .withStyle(ChatFormatting.GOLD)));
+                    //}
+                    //if (Config.SHOW_INSTRUMENT.get()) {
+                    //    list.add(Component.translatable("message.block_detective.infiniburn").append(separator).withStyle(ChatFormatting.YELLOW)
+                    //            .append(Component.literal(FormattingHelper.ConvertBooleanToString(state.is(BlockTags.INFINIBURN_END) || state.is(BlockTags.INFINIBURN_NETHER) || state.is(BlockTags.INFINIBURN_OVERWORLD)))
+                    //                    .withStyle(ChatFormatting.GOLD)));
+                    //}
+                    //if (Config.SHOW_INSTRUMENT.get()) {
+                    //    list.add(Component.translatable("message.block_detective.dampens_vibrations").append(separator).withStyle(ChatFormatting.YELLOW)
+                    //            .append(Component.literal(FormattingHelper.ConvertBooleanToString(state.is(BlockTags.DAMPENS_VIBRATIONS)))
+                    //                    .withStyle(ChatFormatting.GOLD)));
+                    //}
+                    //if (Config.SHOW_INSTRUMENT.get()) {
+                    //    list.add(Component.translatable("message.block_detective.replaceable").append(separator).withStyle(ChatFormatting.YELLOW)
+                    //            .append(Component.literal(FormattingHelper.ConvertBooleanToString(state.is(BlockTags.REPLACEABLE)))
+                    //                    .withStyle(ChatFormatting.GOLD)));
+                    //}
+                    //if (Config.SHOW_IF_SOLID.get()) {
+                    //    list.add(Component.translatable("message.block_detective.pathfindable").append(separator).withStyle(ChatFormatting.YELLOW)
+                    //            .append(Component.literal(FormattingHelper.ConvertBooleanToString(state.isPathfindable(PathComputationType.LAND)))
+                    //                    .withStyle(ChatFormatting.GOLD)));
+                    //}
                 }
 
                 // Once the corresponding block is found, no need to continue iterating
@@ -158,7 +201,83 @@ public class Events {
                     list.add(Component.literal(BuiltInRegistries.ITEM.getKey(item).toString())
                             .withStyle(ChatFormatting.GOLD));
                 }
+                //if (Config.SHOW_INSTRUMENT.get()) {
+                //    list.add(Component.translatable("message.block_detective.max_size").append(separator).withStyle(ChatFormatting.YELLOW)
+                //            .append(Component.literal(String.valueOf(item.getMaxStackSize(stack)))
+                //                    .withStyle(ChatFormatting.GOLD)));
+                //}
+                //if (Config.SHOW_INSTRUMENT.get()) {
+                //    list.add(Component.translatable("message.block_detective.max_damage").append(separator).withStyle(ChatFormatting.YELLOW)
+                //            .append(Component.literal(String.valueOf(item.getMaxDamage(stack)))
+                //                    .withStyle(ChatFormatting.GOLD)));
+                //}
+                //if (Config.SHOW_INSTRUMENT.get()) {
+                //    list.add(Component.translatable("message.block_detective.damage").append(separator).withStyle(ChatFormatting.YELLOW)
+                //            .append(Component.literal(String.valueOf(item.getDamage(stack)))
+                //                    .withStyle(ChatFormatting.GOLD)));
+                //}
+                //if (Config.SHOW_INSTRUMENT.get() && item instanceof DiggerItem) {
+                //    list.add(Component.translatable("message.block_detective.stone_mining_speed").append(separator).withStyle(ChatFormatting.YELLOW)
+                //            .append(Component.literal(String.valueOf(item.getDestroySpeed(stack, Blocks.STONE.defaultBlockState())))
+                //                    .withStyle(ChatFormatting.GOLD)));
+                //}
+                //if (Config.SHOW_INSTRUMENT.get() && item instanceof DiggerItem) {
+                //    list.add(Component.translatable("message.block_detective.dirt_mining_speed").append(separator).withStyle(ChatFormatting.YELLOW)
+                //            .append(Component.literal(String.valueOf(item.getDestroySpeed(stack, Blocks.DIRT.defaultBlockState())))
+                //                    .withStyle(ChatFormatting.GOLD)));
+                //}
+                //if (Config.SHOW_INSTRUMENT.get() && item instanceof DiggerItem) {
+                //    list.add(Component.translatable("message.block_detective.wood_mining_speed").append(separator).withStyle(ChatFormatting.YELLOW)
+                //            .append(Component.literal(String.valueOf(item.getDestroySpeed(stack, Blocks.OAK_LOG.defaultBlockState())))
+                //                    .withStyle(ChatFormatting.GOLD)));
+                //}
+                //if (Config.SHOW_INSTRUMENT.get()) {
+                //    list.add(Component.translatable("message.block_detective.grindstone_repair").append(separator).withStyle(ChatFormatting.YELLOW)
+                //            .append(Component.literal(String.valueOf(item.canGrindstoneRepair(stack)))
+                //                    .withStyle(ChatFormatting.GOLD)));
+                //}
+                //if (Config.SHOW_INSTRUMENT.get()) {
+                //    list.add(Component.translatable("message.block_detective.piglin_currency").append(separator).withStyle(ChatFormatting.YELLOW)
+                //            .append(Component.literal(FormattingHelper.ConvertBooleanToString(item.isPiglinCurrency(stack)))
+                //                    .withStyle(ChatFormatting.GOLD)));
+                //}
+                //if (Config.SHOW_INSTRUMENT.get()) {
+                //    list.add(Component.translatable("message.block_detective.piglins_neutral").append(separator).withStyle(ChatFormatting.YELLOW)
+                //            .append(Component.literal(FormattingHelper.ConvertBooleanToString(item.makesPiglinsNeutral(stack, Objects.requireNonNull(event.getEntity()))))
+                //                    .withStyle(ChatFormatting.GOLD)));
+                //}
+                //if (Config.SHOW_INSTRUMENT.get()) {
+                //    list.add(Component.translatable("message.block_detective.beacon_payment").append(separator).withStyle(ChatFormatting.YELLOW)
+                //            .append(Component.literal(FormattingHelper.ConvertBooleanToString(stack.is(ItemTags.BEACON_PAYMENT_ITEMS)))
+                //                    .withStyle(ChatFormatting.GOLD)));
+                //}
+                //if (Config.SHOW_INSTRUMENT.get()) {
+                //    list.add(Component.translatable("message.block_detective.enchantable").append(separator).withStyle(ChatFormatting.YELLOW)
+                //            .append(Component.literal(FormattingHelper.ConvertBooleanToString(stack.is(Tags.Items.ENCHANTABLES)))
+                //                    .withStyle(ChatFormatting.GOLD)));
+                //}
+                //if (Config.SHOW_INSTRUMENT.get()) {
+                //    list.add(Component.translatable("message.block_detective.food").append(separator).withStyle(ChatFormatting.YELLOW)
+                //            .append(Component.literal(FormattingHelper.ConvertBooleanToString(stack.is(Tags.Items.FOODS)))
+                //                    .withStyle(ChatFormatting.GOLD)));
+                //}
+                //if (Config.SHOW_INSTRUMENT.get()) {
+                //    list.add(Component.translatable("message.block_detective.dyable").append(separator).withStyle(ChatFormatting.YELLOW)
+                //            .append(Component.literal(FormattingHelper.ConvertBooleanToString(stack.is(ItemTags.DYEABLE)))
+                //                    .withStyle(ChatFormatting.GOLD)));
+                //}
+                //if (Config.SHOW_INSTRUMENT.get()) {
+                //    list.add(Component.translatable("message.block_detective.trim_material").append(separator).withStyle(ChatFormatting.YELLOW)
+                //            .append(Component.literal(FormattingHelper.ConvertBooleanToString(stack.is(ItemTags.TRIM_MATERIALS)))
+                //                    .withStyle(ChatFormatting.GOLD)));
+                //}
+                //if (Config.SHOW_INSTRUMENT.get() && item instanceof ArmorItem) {
+                //    list.add(Component.translatable("message.block_detective.trimmable").append(separator).withStyle(ChatFormatting.YELLOW)
+                //            .append(Component.literal(FormattingHelper.ConvertBooleanToString(stack.is(ItemTags.TRIMMABLE_ARMOR)))
+                //                    .withStyle(ChatFormatting.GOLD)));
+                //}
             }
+
         }
     }
 
