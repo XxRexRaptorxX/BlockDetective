@@ -187,7 +187,7 @@ public class Events {
 
             if (!hasShownUp && Minecraft.getInstance().screen == null) {
                 var player = Minecraft.getInstance().player;
-                if (player == null) return; // Added null check
+                if (player == null) return;
 
                 var modContainer = ModList.get().getModContainerById(References.MODID).orElse(null);
 
@@ -195,7 +195,7 @@ public class Events {
                     var versionCheckResult = VersionChecker.getResult(modContainer.getModInfo());
 
                     if (versionCheckResult.status() == VersionChecker.Status.OUTDATED || versionCheckResult.status() == VersionChecker.Status.BETA_OUTDATED) {
-                        MutableComponent url = Component.literal(ChatFormatting.GREEN + "Click here to update!")
+                        MutableComponent url = Component.translatable(ChatFormatting.GREEN + "Click here to update!")
                                 .withStyle(style -> style.withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, References.URL)));
 
                         player.displayClientMessage(Component.literal(ChatFormatting.BLUE + "A newer version of " + ChatFormatting.YELLOW + References.NAME + ChatFormatting.BLUE + " is available!"), false);

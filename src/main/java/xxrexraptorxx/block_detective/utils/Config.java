@@ -89,21 +89,21 @@ public class Config {
         SHOW_REQUIRES_CORRECT_TOOL = builder.comment("Show if the block requires the correct tool to drop in the item tooltips").define("show_if_requires_correct_tool", true);
         builder.pop();
 
-        builder.comment("JEI Pages").push(CATEGORY_JEI);
-        ENABLE_JEI_ITEM_PAGES = builder.comment("Enable JEI (Just enough items Mod) item info pages").define("enable_jei_item_pages", true);
-        SHOW_REGISTRY_NAME_IN_JEI = builder.comment("Show the registry name in the JEI item page").define("show_registry_name_jei", true);
-        SHOW_DESTROY_TIME_IN_JEI = builder.comment("Show the destroy time in the JEI item page").define("show_destroy_time_jei", true);
-        SHOW_EXPLOSION_RESISTANCE_IN_JEI = builder.comment("Show the explosion resistance in the JEI item page").define("show_explosion_resistance_jei", true);
-        SHOW_LIGHT_LEVEL_IN_JEI = builder.comment("Show the light level in the JEI item page").define("show_light_level_jei", true);
-        SHOW_JUMP_FACTOR_IN_JEI = builder.comment("Show the jump factor in the JEI item page").define("show_jump_factor_jei", true);
-        SHOW_SPEED_FACTOR_IN_JEI = builder.comment("Show the speed factor in the JEI item page").define("show_speed_factor_jei", true);
-        SHOW_FRICTION_IN_JEI = builder.comment("Show the friction in the JEI item page").define("show_friction_jei", true);
-        SHOW_IF_FLAMMABLE_IN_JEI = builder.comment("Show if the block is flammable in the JEI item page").define("show_if_flammable_jei", true);
-        SHOW_IF_SOLID_IN_JEI = builder.comment("Show if the block is solid in the JEI item page").define("show_if_solid_jei", true);
-        SHOW_INSTRUMENT_IN_JEI = builder.comment("Show the noteblock instrument in the JEI item page").define("show_instrument_jei", true);
-        SHOW_MAP_COLOR_IN_JEI = builder.comment("Show the map color of this block in the JEI item page").define("show_map_color_jei", true);
-        SHOW_IS_GRAVITY_AFFECTED_IN_JEI = builder.comment("Show of the block is gravity affected in the JEI item page").define("show_if_gravity_affected", true);
-        SHOW_REQUIRES_CORRECT_TOOL_IN_JEI = builder.comment("Show if the block requires the correct tool to drop in the JEI item page").define("show_if_requires_correct_tool", true);
+        builder.comment("JEI/REI/EMI Pages").push(CATEGORY_JEI);
+        ENABLE_JEI_ITEM_PAGES = builder.comment("Enable JEI/REI/EMI item info pages").define("enable_jei_item_pages", true);
+        SHOW_REGISTRY_NAME_IN_JEI = builder.comment("Show the registry name in the item page").define("show_registry_name_jei", true);
+        SHOW_DESTROY_TIME_IN_JEI = builder.comment("Show the destroy time in the item page").define("show_destroy_time_jei", true);
+        SHOW_EXPLOSION_RESISTANCE_IN_JEI = builder.comment("Show the explosion resistance in the item page").define("show_explosion_resistance_jei", true);
+        SHOW_LIGHT_LEVEL_IN_JEI = builder.comment("Show the light level in the item page").define("show_light_level_jei", true);
+        SHOW_JUMP_FACTOR_IN_JEI = builder.comment("Show the jump factor in the item page").define("show_jump_factor_jei", true);
+        SHOW_SPEED_FACTOR_IN_JEI = builder.comment("Show the speed factor in the item page").define("show_speed_factor_jei", true);
+        SHOW_FRICTION_IN_JEI = builder.comment("Show the friction in the item page").define("show_friction_jei", true);
+        SHOW_IF_FLAMMABLE_IN_JEI = builder.comment("Show if the block is flammable in the item page").define("show_if_flammable_jei", true);
+        SHOW_IF_SOLID_IN_JEI = builder.comment("Show if the block is solid in the item page").define("show_if_solid_jei", true);
+        SHOW_INSTRUMENT_IN_JEI = builder.comment("Show the noteblock instrument in the item page").define("show_instrument_jei", true);
+        SHOW_MAP_COLOR_IN_JEI = builder.comment("Show the map color of this block in the item page").define("show_map_color_jei", true);
+        SHOW_IS_GRAVITY_AFFECTED_IN_JEI = builder.comment("Show of the block is gravity affected in the item page").define("show_if_gravity_affected", true);
+        SHOW_REQUIRES_CORRECT_TOOL_IN_JEI = builder.comment("Show if the block requires the correct tool to drop in the item page").define("show_if_requires_correct_tool", true);
         builder.pop();
 
         CLIENT_CONFIG = builder.build();
