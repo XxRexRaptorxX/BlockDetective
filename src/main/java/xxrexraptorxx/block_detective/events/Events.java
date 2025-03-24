@@ -84,63 +84,59 @@ public class Events {
                                 .withStyle(ChatFormatting.GOLD));
                     }
                     if (Config.SHOW_DESTROY_TIME.get()) {
-                        list.add(Component.translatable("message.block_detective.destroy_time").withStyle(ChatFormatting.YELLOW)
-                                .append(Component.literal(separator + block.defaultDestroyTime()).withStyle(ChatFormatting.GOLD)));
+                        list.add(Component.translatable("message.block_detective.destroy_time").append(separator).withStyle(ChatFormatting.YELLOW)
+                                .append(Component.literal(String.valueOf(block.defaultDestroyTime())).withStyle(ChatFormatting.GOLD)));
                     }
                     if (Config.SHOW_EXPLOSION_RESISTANCE.get()) {
-                        list.add(Component.translatable("message.block_detective.explosion_resistance").withStyle(ChatFormatting.YELLOW)
-                                .append(Component.literal(separator + block.getExplosionResistance()).withStyle(ChatFormatting.GOLD)));
+                        list.add(Component.translatable("message.block_detective.explosion_resistance").append(separator).withStyle(ChatFormatting.YELLOW)
+                                .append(Component.literal(String.valueOf(block.getExplosionResistance())).withStyle(ChatFormatting.GOLD)));
                     }
                     if (Config.SHOW_JUMP_FACTOR.get()) {
-                        list.add(Component.translatable("message.block_detective.jump_factor").withStyle(ChatFormatting.YELLOW)
-                                .append(Component.literal(separator + block.getJumpFactor()).withStyle(ChatFormatting.GOLD)));
+                        list.add(Component.translatable("message.block_detective.jump_factor").append(separator).withStyle(ChatFormatting.YELLOW)
+                                .append(Component.literal(String.valueOf(block.getJumpFactor())).withStyle(ChatFormatting.GOLD)));
                     }
                     if (Config.SHOW_SPEED_FACTOR.get()) {
-                        list.add(Component.translatable("message.block_detective.speed_factor").withStyle(ChatFormatting.YELLOW)
-                                .append(Component.literal(separator + block.getSpeedFactor()).withStyle(ChatFormatting.GOLD)));
+                        list.add(Component.translatable("message.block_detective.speed_factor").append(separator).withStyle(ChatFormatting.YELLOW)
+                                .append(Component.literal(String.valueOf(block.getSpeedFactor())).withStyle(ChatFormatting.GOLD)));
                     }
                     if (Config.SHOW_LIGHT_LEVEL.get()) {
-                        list.add(Component.translatable("message.block_detective.light_level").withStyle(ChatFormatting.YELLOW)
-                                .append(Component.literal(separator + block.defaultBlockState().getLightEmission()).withStyle(ChatFormatting.GOLD)));
+                        list.add(Component.translatable("message.block_detective.light_level").append(separator).withStyle(ChatFormatting.YELLOW)
+                                .append(Component.literal(String.valueOf(block.defaultBlockState().getLightEmission())).withStyle(ChatFormatting.GOLD)));
                     }
                     if (Config.SHOW_FRICTION.get()) {
-                        list.add(Component.translatable("message.block_detective.friction").withStyle(ChatFormatting.YELLOW)
-                                .append(Component.literal(separator + block.getFriction()).withStyle(ChatFormatting.GOLD)));
+                        list.add(Component.translatable("message.block_detective.friction").append(separator).withStyle(ChatFormatting.YELLOW)
+                                .append(Component.literal(String.valueOf(block.getFriction())).withStyle(ChatFormatting.GOLD)));
                     }
                     if (Config.SHOW_IF_FLAMMABLE.get()) {
-                        list.add(Component.translatable("message.block_detective.flammable").withStyle(ChatFormatting.YELLOW)
-                                .append(Component.literal(separator)
-                                        .append(FormattingHelper.ConvertBooleanToString(
-                                                block.defaultBlockState().isFlammable(event.getEntity().level(), new BlockPos(0, 0, 0), Direction.DOWN)))
+                        list.add(Component.translatable("message.block_detective.flammable").append(separator).withStyle(ChatFormatting.YELLOW)
+                                .append(Component.literal(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().isFlammable(
+                                        event.getEntity().level(), new BlockPos(0, 0, 0), Direction.DOWN)))
                                         .withStyle(ChatFormatting.GOLD)));
                     }
                     if (Config.SHOW_IF_SOLID.get()) {
-                        list.add(Component.translatable("message.block_detective.solid").withStyle(ChatFormatting.YELLOW)
-                                .append(Component.literal(separator)
-                                        .append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().isSolid()))
-                                        .withStyle(ChatFormatting.GOLD)));
+                        list.add(Component.translatable("message.block_detective.solid").append(separator).withStyle(ChatFormatting.YELLOW)
+                                .append(Component.literal(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().isSolid()))
+                                .withStyle(ChatFormatting.GOLD)));
                     }
                     if (Config.SHOW_REQUIRES_CORRECT_TOOL.get()) {
-                        list.add(Component.translatable("message.block_detective.requires_correct_tool").withStyle(ChatFormatting.YELLOW)
-                                .append(Component.literal(separator)
-                                        .append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().requiresCorrectToolForDrops()))
-                                        .withStyle(ChatFormatting.GOLD)));
+                        list.add(Component.translatable("message.block_detective.requires_correct_tool").append(separator).withStyle(ChatFormatting.YELLOW)
+                                .append(Component.literal(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().requiresCorrectToolForDrops()))
+                                .withStyle(ChatFormatting.GOLD)));
                     }
                     if (Config.SHOW_IS_GRAVITY_AFFECTED.get()) {
-                        list.add(Component.translatable("message.block_detective.is_gravity_affected").withStyle(ChatFormatting.YELLOW)
-                                .append(Component.literal(separator)
-                                        .append(FormattingHelper.ConvertBooleanToString(block instanceof FallingBlock))
-                                        .withStyle(ChatFormatting.GOLD)));
+                        list.add(Component.translatable("message.block_detective.is_gravity_affected").append(separator).withStyle(ChatFormatting.YELLOW)
+                                .append(Component.literal(FormattingHelper.ConvertBooleanToString(block instanceof FallingBlock))
+                                .withStyle(ChatFormatting.GOLD)));
                     }
                     if (Config.SHOW_MAP_COLOR.get()) {
-                        list.add(Component.translatable("message.block_detective.map_color").withStyle(ChatFormatting.YELLOW)
-                                .append(Component.literal(separator + FormattingHelper.FormatRegistryNames(FormattingHelper.getMapColorName(block.defaultMapColor())))
-                                        .withStyle(ChatFormatting.GOLD)));
+                        list.add(Component.translatable("message.block_detective.map_color").append(separator).withStyle(ChatFormatting.YELLOW)
+                                .append(Component.literal(FormattingHelper.FormatRegistryNames(FormattingHelper.getMapColorName(block.defaultMapColor())))
+                                .withStyle(ChatFormatting.GOLD)));
                     }
                     if (Config.SHOW_INSTRUMENT.get()) {
-                        list.add(Component.translatable("message.block_detective.instrument").withStyle(ChatFormatting.YELLOW)
-                                .append(Component.literal(separator + FormattingHelper.FormatRegistryNames(String.valueOf(block.defaultBlockState().instrument())))
-                                        .withStyle(ChatFormatting.GOLD)));
+                        list.add(Component.translatable("message.block_detective.instrument").append(separator).withStyle(ChatFormatting.YELLOW)
+                                .append(Component.literal(FormattingHelper.FormatRegistryNames(String.valueOf(block.defaultBlockState().instrument())))
+                                .withStyle(ChatFormatting.GOLD)));
                     }
                 }
 

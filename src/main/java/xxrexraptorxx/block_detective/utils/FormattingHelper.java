@@ -67,58 +67,70 @@ public class FormattingHelper {
         String textSeparator = ": ";
         String lineSeperator = "\n";
 
-        MutableComponent description = Component.literal(BuiltInRegistries.ITEM.getKey(block.asItem()).toString())
+        MutableComponent description = Component.literal(BuiltInRegistries.ITEM.getKey(block.asItem()).toString()).withStyle(ChatFormatting.YELLOW)
                 .append(lineSeperator);
 
         if (Config.SHOW_DESTROY_TIME_IN_JEI.get()) {
-            description = description.append(lineSeperator)
-                    .append(Component.translatable("message.block_detective.destroy_time").append(textSeparator + block.defaultDestroyTime()));
+            description.append(lineSeperator);
+            description.append(Component.translatable("message.block_detective.destroy_time").append(textSeparator).withStyle(ChatFormatting.DARK_GRAY));
+            description.append(Component.literal(String.valueOf(block.defaultDestroyTime())).withStyle(ChatFormatting.WHITE));
         }
         if (Config.SHOW_EXPLOSION_RESISTANCE_IN_JEI.get()) {
-            description = description.append(lineSeperator)
-                    .append(Component.translatable("message.block_detective.explosion_resistance").append(textSeparator + block.getExplosionResistance()));
+            description.append(lineSeperator);
+            description.append(Component.translatable("message.block_detective.explosion_resistance").append(textSeparator).withStyle(ChatFormatting.DARK_GRAY));
+            description.append(Component.literal(String.valueOf(block.getExplosionResistance())).withStyle(ChatFormatting.WHITE));
         }
         if (Config.SHOW_JUMP_FACTOR_IN_JEI.get()) {
-            description = description.append(lineSeperator)
-                    .append(Component.translatable("message.block_detective.jump_factor").append(textSeparator + block.getJumpFactor()));
+            description.append(lineSeperator);
+            description.append(Component.translatable("message.block_detective.jump_factor").append(textSeparator).withStyle(ChatFormatting.DARK_GRAY));
+            description.append(Component.literal(String.valueOf(block.getJumpFactor())).withStyle(ChatFormatting.WHITE));
         }
         if (Config.SHOW_SPEED_FACTOR_IN_JEI.get()) {
-            description = description.append(lineSeperator)
-                    .append(Component.translatable("message.block_detective.speed_factor").append(textSeparator + block.getSpeedFactor()));
+            description.append(lineSeperator);
+            description.append(Component.translatable("message.block_detective.speed_factor").append(textSeparator).withStyle(ChatFormatting.DARK_GRAY));
+            description.append(Component.literal(String.valueOf(block.getSpeedFactor())).withStyle(ChatFormatting.WHITE));
         }
         if (Config.SHOW_LIGHT_LEVEL_IN_JEI.get()) {
-            description = description.append(lineSeperator)
-                    .append(Component.translatable("message.block_detective.light_level").append(textSeparator + block.defaultBlockState().getLightEmission()));
+            description.append(lineSeperator);
+            description.append(Component.translatable("message.block_detective.light_level").append(textSeparator).withStyle(ChatFormatting.DARK_GRAY));
+            description.append(Component.literal(String.valueOf(block.defaultBlockState().getLightEmission())).withStyle(ChatFormatting.WHITE));
         }
         if (Config.SHOW_FRICTION_IN_JEI.get()) {
-            description = description.append(lineSeperator)
-                    .append(Component.translatable("message.block_detective.friction").append(textSeparator + block.getFriction()));
+            description.append(lineSeperator);
+            description.append(Component.translatable("message.block_detective.friction").append(textSeparator).withStyle(ChatFormatting.DARK_GRAY));
+            description.append(Component.literal(String.valueOf(block.getFriction())).withStyle(ChatFormatting.WHITE));
         }
         if (Config.SHOW_IF_SOLID_IN_JEI.get()) {
-            description = description.append(lineSeperator)
-                    .append(Component.translatable("message.block_detective.solid").append(textSeparator).append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().isSolid())));
+            description.append(lineSeperator);
+            description.append(Component.translatable("message.block_detective.solid").append(textSeparator).withStyle(ChatFormatting.DARK_GRAY));
+            description.append(Component.literal(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().isSolid())).withStyle(ChatFormatting.WHITE));
         }
         if (Config.SHOW_REQUIRES_CORRECT_TOOL_IN_JEI.get()) {
-            description = description.append(lineSeperator)
-                    .append(Component.translatable("message.block_detective.requires_correct_tool").append(textSeparator).append(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().requiresCorrectToolForDrops())));
+            description.append(lineSeperator);
+            description.append(Component.translatable("message.block_detective.requires_correct_tool").append(textSeparator).withStyle(ChatFormatting.DARK_GRAY));
+            description.append(Component.literal(FormattingHelper.ConvertBooleanToString(block.defaultBlockState().requiresCorrectToolForDrops())).withStyle(ChatFormatting.WHITE));
         }
         if (Config.SHOW_IS_GRAVITY_AFFECTED_IN_JEI.get()) {
-            description = description.append(lineSeperator)
-                    .append(Component.translatable("message.block_detective.is_gravity_affected").append(textSeparator).append(FormattingHelper.ConvertBooleanToString(block instanceof FallingBlock)));
+            description.append(lineSeperator);
+            description.append(Component.translatable("message.block_detective.is_gravity_affected").append(textSeparator).withStyle(ChatFormatting.DARK_GRAY));
+            description.append(Component.literal(FormattingHelper.ConvertBooleanToString(block instanceof FallingBlock)).withStyle(ChatFormatting.WHITE));
         }
         if (Config.SHOW_MAP_COLOR_IN_JEI.get()) {
-            description = description.append(lineSeperator)
-                    .append(Component.translatable("message.block_detective.map_color").append(textSeparator + (FormattingHelper.FormatRegistryNames(FormattingHelper.getMapColorName(block.defaultMapColor())))));
+            description.append(lineSeperator);
+            description.append(Component.translatable("message.block_detective.map_color").append(textSeparator).withStyle(ChatFormatting.DARK_GRAY));
+            description.append(Component.literal(FormattingHelper.FormatRegistryNames(FormattingHelper.getMapColorName(block.defaultMapColor()))).withStyle(ChatFormatting.WHITE));
         }
         if (Config.SHOW_INSTRUMENT_IN_JEI.get()) {
-            description = description.append(lineSeperator)
-                    .append(Component.translatable("message.block_detective.instrument").append(textSeparator + (FormattingHelper.FormatRegistryNames(String.valueOf(block.defaultBlockState().instrument())))));
+            description.append(lineSeperator);
+            description.append(Component.translatable("message.block_detective.instrument").append(textSeparator).withStyle(ChatFormatting.DARK_GRAY));
+            description.append(Component.literal(FormattingHelper.FormatRegistryNames(String.valueOf(block.defaultBlockState().instrument()))).withStyle(ChatFormatting.WHITE));
         }
 
-        description = description.append(lineSeperator + lineSeperator)
-                .append(Component.translatable("message.block_detective.information").append(References.NAME));
+        description.append(lineSeperator + lineSeperator);
+        description.append(Component.translatable("message.block_detective.information").append(lineSeperator).withStyle(ChatFormatting.DARK_GRAY));
+        description.append(Component.literal(References.NAME).withStyle(ChatFormatting.YELLOW));
 
-        return description.withStyle(ChatFormatting.DARK_GRAY);
+        return description;
     }
 
 }
