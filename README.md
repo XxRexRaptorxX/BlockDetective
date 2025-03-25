@@ -9,6 +9,7 @@
 ## 📖 Description
 
 This mod shows you the properties of all blocks & items (vanilla + modded) as tooltips and [JEI](https://www.curseforge.com/minecraft/mc-mods/jei)/[REI](https://www.curseforge.com/minecraft/mc-mods/roughly-enough-items)/[EMI](https://www.curseforge.com/minecraft/mc-mods/emi)  info pages!
+Useful for mapmaker, pack maker, modder and redstoner!
 
 With many config options to customize it to your liking.
 
