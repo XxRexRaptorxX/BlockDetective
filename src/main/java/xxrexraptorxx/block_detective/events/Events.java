@@ -135,6 +135,11 @@ public class Events {
                                 .append(Component.literal(FormattingHelper.ConvertBooleanToString(block instanceof FallingBlock))
                                 .withStyle(ChatFormatting.GOLD)));
                     }
+                    if (Config.SHOW_IS_CLIMBABLE.get()) {
+                        list.add(Component.translatable("message.block_detective.climbable").append(separator).withStyle(ChatFormatting.YELLOW)
+                                .append(Component.literal(FormattingHelper.ConvertBooleanToString(state.is(BlockTags.CLIMBABLE)))
+                                        .withStyle(ChatFormatting.GOLD)));
+                    }
                     if (Config.SHOW_MAP_COLOR.get()) {
                         list.add(Component.translatable("message.block_detective.map_color").append(separator).withStyle(ChatFormatting.YELLOW)
                                 .append(Component.literal(FormattingHelper.FormatRegistryNames(FormattingHelper.getMapColorName(block.defaultMapColor())))
@@ -144,11 +149,6 @@ public class Events {
                         list.add(Component.translatable("message.block_detective.instrument").append(separator).withStyle(ChatFormatting.YELLOW)
                                 .append(Component.literal(FormattingHelper.FormatRegistryNames(String.valueOf(state.instrument())))
                                 .withStyle(ChatFormatting.GOLD)));
-                    }
-                    if (Config.SHOW_IS_CLIMBABLE.get()) {
-                        list.add(Component.translatable("message.block_detective.climbable").append(separator).withStyle(ChatFormatting.YELLOW)
-                                .append(Component.literal(FormattingHelper.ConvertBooleanToString(state.is(BlockTags.CLIMBABLE)))
-                                        .withStyle(ChatFormatting.GOLD)));
                     }
                     if (Config.SHOW_IS_IMPERMEABLE.get()) {
                         list.add(Component.translatable("message.block_detective.impermeable").append(separator).withStyle(ChatFormatting.YELLOW)
@@ -281,7 +281,6 @@ public class Events {
                                     .withStyle(ChatFormatting.GOLD)));
                 }
             }
-
         }
     }
 
