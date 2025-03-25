@@ -8,7 +8,7 @@
 
 ## 📖 Description
 
-This mod shows you the properties of all blocks (vanilla + modded) as tooltips and/or [JEI](https://www.curseforge.com/minecraft/mc-mods/jei) item info pages!
+This mod shows you the properties of all blocks & items (vanilla + modded) as tooltips and [JEI](https://www.curseforge.com/minecraft/mc-mods/jei)/[REI](https://www.curseforge.com/minecraft/mc-mods/roughly-enough-items)/[EMI](https://www.curseforge.com/minecraft/mc-mods/emi)  info pages!
 
 With many config options to customize it to your liking.
 
