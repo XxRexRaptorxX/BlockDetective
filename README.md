@@ -16,7 +16,8 @@ With many config options to customize it to your liking.
 
 ![](https://i.imgur.com/N12a1m0.png)
 ![](https://i.imgur.com/ApdxqZP.png)
-![](https://i.imgur.com/bwlKYs0.png)
+![](https://github.com/XxRexRaptorxX/General/blob/main/2025-03-25_20.39.58.png?raw=true)
+![](https://github.com/XxRexRaptorxX/General/blob/main/2025-03-25_20.40.09.png?raw=true)
 
 -----
 
