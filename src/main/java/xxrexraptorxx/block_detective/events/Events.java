@@ -119,7 +119,7 @@ public class Events {
                     if (Config.SHOW_IF_FLAMMABLE.get()) {
                         list.add(Component.translatable("message.block_detective.flammable").append(separator).withStyle(ChatFormatting.YELLOW)
                                 .append(Component.literal(FormattingHelper.ConvertBooleanToString(state.isFlammable(
-                                        event.getEntity().level(), new BlockPos(0, 0, 0), Direction.DOWN)))
+                                        event.getContext().level(), new BlockPos(0, 0, 0), Direction.DOWN)))
                                         .withStyle(ChatFormatting.GOLD)));
                     }
                     if (Config.SHOW_IF_SOLID.get()) {
