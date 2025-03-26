@@ -13,7 +13,7 @@ displayURL="https://www.curseforge.com/minecraft/mc-mods/block-detective"
 logoFile="logo.png"
 #credits=""
 authors="${mod_authors}"
-description='''This mod shows you the properties of all blocks!'''
+description='''This mod shows you the properties of all blocks & items (vanilla + modded) as tooltips and JEI/REI/EMI info pages! \nWith many config options to customize it to your liking.'''
 
 
 [[dependencies.${mod_id}]]

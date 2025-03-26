@@ -20,7 +20,9 @@ import net.minecraft.stats.Stats;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.ResolvableProfile;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -220,17 +222,17 @@ public class Events {
                             .append(Component.literal(String.valueOf(item.getDamage(stack)))
                                     .withStyle(ChatFormatting.GOLD)));
                 }
-                if (Config.SHOW_STONE_MINING_SPEED.get() && item instanceof DiggerItem) {
+                if (Config.SHOW_STONE_MINING_SPEED.get() && item.components().has(DataComponents.TOOL)) {
                     list.add(Component.translatable("message.block_detective.stone_mining_speed").append(separator).withStyle(ChatFormatting.YELLOW)
                             .append(Component.literal(String.valueOf(item.getDestroySpeed(stack, Blocks.STONE.defaultBlockState())))
                                     .withStyle(ChatFormatting.GOLD)));
                 }
-                if (Config.SHOW_DIRT_MINING_SPEED.get() && item instanceof DiggerItem) {
+                if (Config.SHOW_DIRT_MINING_SPEED.get() && item.components().has(DataComponents.TOOL)) {
                     list.add(Component.translatable("message.block_detective.dirt_mining_speed").append(separator).withStyle(ChatFormatting.YELLOW)
                             .append(Component.literal(String.valueOf(item.getDestroySpeed(stack, Blocks.DIRT.defaultBlockState())))
                                     .withStyle(ChatFormatting.GOLD)));
                 }
-                if (Config.SHOW_SHOW_WOOD_MINING_SPEED.get() && item instanceof DiggerItem) {
+                if (Config.SHOW_SHOW_WOOD_MINING_SPEED.get() && item.components().has(DataComponents.TOOL)) {
                     list.add(Component.translatable("message.block_detective.wood_mining_speed").append(separator).withStyle(ChatFormatting.YELLOW)
                             .append(Component.literal(String.valueOf(item.getDestroySpeed(stack, Blocks.OAK_LOG.defaultBlockState())))
                                     .withStyle(ChatFormatting.GOLD)));
@@ -260,7 +262,7 @@ public class Events {
                             .append(Component.literal(FormattingHelper.ConvertBooleanToString(stack.is(ItemTags.TRIM_MATERIALS)))
                                     .withStyle(ChatFormatting.GOLD)));
                 }
-                if (Config.SHOW_IS_TRIMMABLE.get() && item instanceof ArmorItem) {
+                if (Config.SHOW_IS_TRIMMABLE.get() && item.components().has(DataComponents.EQUIPPABLE)) {
                     list.add(Component.translatable("message.block_detective.trimmable").append(separator).withStyle(ChatFormatting.YELLOW)
                             .append(Component.literal(FormattingHelper.ConvertBooleanToString(stack.is(ItemTags.TRIMMABLE_ARMOR)))
                                     .withStyle(ChatFormatting.GOLD)));
@@ -314,7 +316,7 @@ public class Events {
 
                     if (versionCheckResult.status() == VersionChecker.Status.OUTDATED || versionCheckResult.status() == VersionChecker.Status.BETA_OUTDATED) {
                         MutableComponent url = Component.translatable(ChatFormatting.GREEN + "Click here to update!")
-                                .withStyle(style -> style.withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, References.URL)));
+                                .withStyle(style -> style.withClickEvent(new ClickEvent.OpenUrl(URI.create(References.URL))));
 
                         player.displayClientMessage(Component.literal(ChatFormatting.BLUE + "A newer version of " + ChatFormatting.YELLOW + References.NAME + ChatFormatting.BLUE + " is available!"), false);
                         player.displayClientMessage(url, false);

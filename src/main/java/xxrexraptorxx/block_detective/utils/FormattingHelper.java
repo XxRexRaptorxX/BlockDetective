@@ -2,12 +2,12 @@ package xxrexraptorxx.block_detective.utils;
 
 import dev.architectury.networking.forge.NetworkManagerImpl;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
@@ -209,17 +209,17 @@ public class FormattingHelper {
             description.append(Component.translatable("message.block_detective.damage").append(textSeparator).withStyle(ChatFormatting.DARK_GRAY));
             description.append(Component.literal(String.valueOf(item.getDamage(stack))).withStyle(ChatFormatting.WHITE));
         }
-        if (Config.SHOW_STONE_MINING_SPEED_IN_JEI.get() && item instanceof DiggerItem) {
+        if (Config.SHOW_STONE_MINING_SPEED_IN_JEI.get() && item.components().has(DataComponents.TOOL)) {
             description.append(lineSeperator);
             description.append(Component.translatable("message.block_detective.stone_mining_speed").append(textSeparator).withStyle(ChatFormatting.DARK_GRAY));
             description.append(Component.literal(String.valueOf(item.getDestroySpeed(stack, Blocks.STONE.defaultBlockState()))).withStyle(ChatFormatting.WHITE));
         }
-        if (Config.SHOW_DIRT_MINING_SPEED_IN_JEI.get() && item instanceof DiggerItem) {
+        if (Config.SHOW_DIRT_MINING_SPEED_IN_JEI.get() && item.components().has(DataComponents.TOOL)) {
             description.append(lineSeperator);
             description.append(Component.translatable("message.block_detective.dirt_mining_speed").append(textSeparator).withStyle(ChatFormatting.DARK_GRAY));
             description.append(Component.literal(String.valueOf(item.getDestroySpeed(stack, Blocks.DIRT.defaultBlockState()))).withStyle(ChatFormatting.WHITE));
         }
-        if (Config.SHOW_SHOW_WOOD_MINING_SPEED_IN_JEI.get() && item instanceof DiggerItem) {
+        if (Config.SHOW_SHOW_WOOD_MINING_SPEED_IN_JEI.get() && item.components().has(DataComponents.TOOL)) {
             description.append(lineSeperator);
             description.append(Component.translatable("message.block_detective.wood_mining_speed").append(textSeparator).withStyle(ChatFormatting.DARK_GRAY));
             description.append(Component.literal(String.valueOf(item.getDestroySpeed(stack, Blocks.OAK_LOG.defaultBlockState()))).withStyle(ChatFormatting.WHITE));
@@ -249,7 +249,7 @@ public class FormattingHelper {
             description.append(Component.translatable("message.block_detective.trim_material").append(textSeparator).withStyle(ChatFormatting.DARK_GRAY));
             description.append(Component.literal(FormattingHelper.ConvertBooleanToString(stack.is(ItemTags.TRIM_MATERIALS))).withStyle(ChatFormatting.WHITE));
         }
-        if (Config.SHOW_IS_TRIMMABLE_IN_JEI.get()) {
+        if (Config.SHOW_IS_TRIMMABLE_IN_JEI.get() && item.components().has(DataComponents.EQUIPPABLE)) {
             description.append(lineSeperator);
             description.append(Component.translatable("message.block_detective.trimmable").append(textSeparator).withStyle(ChatFormatting.DARK_GRAY));
             description.append(Component.literal(FormattingHelper.ConvertBooleanToString(stack.is(ItemTags.TRIMMABLE_ARMOR))).withStyle(ChatFormatting.WHITE));
