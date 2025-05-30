@@ -11,7 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import xxrexraptorxx.block_detective.main.References;
 import xxrexraptorxx.block_detective.utils.Config;
-import xxrexraptorxx.block_detective.utils.FormattingHelper;
+import xxrexraptorxx.block_detective.utils.NameHelper;
 
 @JeiPlugin
 public class JEIIntegration implements IModPlugin {
@@ -27,16 +27,16 @@ public class JEIIntegration implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registry) {
-        if (Config.ENABLE_JEI_BLOCK_PAGES.get()) {
+        if (Config.isJeiBlockPagesEnabled()) {
             for (Block block : BuiltInRegistries.BLOCK) {
 
-                registry.addIngredientInfo(new ItemStack(block), VanillaTypes.ITEM_STACK, FormattingHelper.getPageDescription(block));
+                registry.addIngredientInfo(new ItemStack(block), VanillaTypes.ITEM_STACK, NameHelper.getPageDescription(block));
             }
         }
-        if (Config.ENABLE_JEI_ITEM_PAGES.get()) {
+        if (Config.isJeiItemPagesEnabled()) {
             for (Item item : BuiltInRegistries.ITEM) {
 
-                registry.addIngredientInfo(new ItemStack(item), VanillaTypes.ITEM_STACK, FormattingHelper.getPageDescription(item));
+                registry.addIngredientInfo(new ItemStack(item), VanillaTypes.ITEM_STACK, NameHelper.getPageDescription(item));
             }
         }
     }

@@ -15,6 +15,8 @@ logoFile="logo.png"
 authors="${mod_authors}"
 description='''This mod shows you the properties of all blocks & items (vanilla + modded) as tooltips and JEI/REI/EMI info pages! \nWith many config options to customize it to your liking.'''
 
+[modproperties.${mod_id}]
+configuredBackground="minecraft:textures/block/test_block_log.png"
 
 [[dependencies.${mod_id}]]
     modId="neoforge"
@@ -32,3 +34,11 @@ description='''This mod shows you the properties of all blocks & items (vanilla 
     ordering="NONE"
     side="BOTH"
 
+[[dependencies.${mod_id}]]
+    modId="magmacore"
+    referralUrl="https://www.curseforge.com/minecraft/mc-mods/magma-core"
+    reason="Provides basic code and features such as update-checker"
+    type="required"
+    versionRange="${magmacore_version_range}"
+    ordering="AFTER"
+    side="BOTH"
