@@ -1,9 +1,7 @@
 ﻿{
     "block_detective.configuration.title": "Block Detective Configuration",
-    "block_detective.configuration.section.block_detective.server.toml": "Server Settings",
-    "block_detective.configuration.section.block_detective.server.toml.title": "Server Options",
-    "block_detective.configuration.section.block_detective.client.toml": "Client Settings",
-    "block_detective.configuration.section.block_detective.client.toml.title": "Client Options",
+    "block_detective.configuration.section.block.detective.client.toml": "Client Settings",
+    "block_detective.configuration.section.block.detective.client.toml.title": "Client Options",
 
     "block_detective.configuration.general": "General Options",
     "block_detective.configuration.general.button": "General Settings",

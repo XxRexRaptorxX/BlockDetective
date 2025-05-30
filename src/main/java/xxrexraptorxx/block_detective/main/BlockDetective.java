@@ -19,7 +19,7 @@ public class BlockDetective {
     public static final Logger LOGGER = LogManager.getLogger();
 
     public BlockDetective(ModContainer container) {
-        ConfigHelper.registerConfigs(container, References.MODID, true, Config.SERVER_CONFIG, Config.CLIENT_CONFIG);
+        ConfigHelper.registerConfigs(container, References.MODID, false, null, Config.CLIENT_CONFIG);
         ModRegistry.register(References.MODID, References.NAME, References.URL);
     }
 

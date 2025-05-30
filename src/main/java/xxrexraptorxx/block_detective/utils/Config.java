@@ -6,9 +6,7 @@ import xxrexraptorxx.magmacore.config.ConfigHelper;
 public class Config {
 
     private static final ModConfigSpec.Builder CLIENT_BUILDER = new ModConfigSpec.Builder();
-    private static final ModConfigSpec.Builder SERVER_BUILDER = new ModConfigSpec.Builder();
     public static ModConfigSpec CLIENT_CONFIG;
-    public static ModConfigSpec SERVER_CONFIG;
 
     private static ModConfigSpec.EnumValue<InformationTypes> TOOLTIP_HINT_SIZE;
     private static ModConfigSpec.BooleanValue USE_CTRL_INSTEAD_OF_SHIFT;
@@ -97,6 +95,7 @@ public class Config {
     private static ModConfigSpec.BooleanValue SHOW_MAKES_PIGLINS_NEUTRAL_IN_JEI;
 
     static {
+        ConfigHelper.setCategory(CLIENT_BUILDER, "general");
         TOOLTIP_HINT_SIZE = CLIENT_BUILDER.comment("How the hint tooltip should look under the items. TINY = [+], NORMAL = [+] Shift, EXTENDED = Hold Shift for more information")
                 .defineEnum("tooltip_hint_size", InformationTypes.NORMAL);
         USE_CTRL_INSTEAD_OF_SHIFT = CLIENT_BUILDER.comment("Use [CTRL] instead of [SHIFT] key to show the additional informations")
@@ -267,7 +266,6 @@ public class Config {
                 .define("show_makes_piglins_neutral_info_page", true);
         CLIENT_BUILDER.pop();
 
-        SERVER_CONFIG = SERVER_BUILDER.build();
         CLIENT_CONFIG = CLIENT_BUILDER.build();
     }
 
