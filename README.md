@@ -44,11 +44,13 @@ With many config options to customize it to your liking.
 
 ### Supported:
 - **Just Enough Items (JEI)**
-  - Provides some additional info pages and shows all recipes
+  - Provides some additional info pages
   - [CurseForge][cf_jei] | [Modrinth][mr_jei]
-- **Roughly Enough Items (REI)** *[optional]*
+- **Roughly Enough Items (REI)**
+  - Provides some additional info pages
   - [CurseForge][cf_rei] | [Modrinth][mr_rei]
-- **Exhaustively Many Items [EMI]** *[optional]*
+- **Exhaustively Many Items (EMI)**
+  - Provides some additional info pages
   - [CurseForge][cf_emi] | [Modrinth][mr_emi]
 
 
