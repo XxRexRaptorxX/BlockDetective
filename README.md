@@ -24,8 +24,11 @@ With many config options to customize it to your liking.
 ## 📷 Presentation
 
 ![tooltip](https://i.imgur.com/N12a1m0.png)
+
 ![info tooltip](https://i.imgur.com/ApdxqZP.png)
+
 ![jei block info page](https://github.com/XxRexRaptorxX/General/blob/main/2025-03-25_20.39.58.png?raw=true)
+
 ![jei item info page](https://github.com/XxRexRaptorxX/General/blob/main/2025-03-25_20.40.09.png?raw=true)
 
 <p align="center">
